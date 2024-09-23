@@ -1,0 +1,7 @@
+{
+  "name": "novo-bambu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
