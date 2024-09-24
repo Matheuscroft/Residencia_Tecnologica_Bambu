@@ -20,10 +20,11 @@
       </ion-input>
     </ion-item>
 
-    <WhiteButton [text]="'Login'" [onClick]="login">morgou</WhiteButton>
+    <WhiteButton [text]="'Login'" [onClick]="login" [routerLink]="['/projetos-home']"></WhiteButton>
 
-    <ion-button class="button-esqueceu" fill="clear" (click)="goToEsqueciSenha()">Esqueceu a senha?</ion-button>
 
-    <ion-button class="button-register" fill="clear" (click)="goToRegister()">Registrar-se no Bambu</ion-button>
+    <ion-button class="button-esqueceu" fill="clear" [routerLink]="['/esqueci-senha']">Esqueceu a senha?</ion-button>
+
+    <ion-button class="button-register" fill="clear" [routerLink]="['/register']">Registrar-se no Bambu</ion-button>
   </div>
 </ion-content>

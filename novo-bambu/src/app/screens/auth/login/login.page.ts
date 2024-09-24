@@ -14,8 +14,9 @@ export class LoginPage {
   constructor(private router: Router) {}
 
   login() {
-    //this.router.navigate(['/projects/projetosHome']);
     console.log("LOGIN CARAI")
+    this.router.navigate(['/projetos-home']);
+    
   }
 
   goToRegister() {
