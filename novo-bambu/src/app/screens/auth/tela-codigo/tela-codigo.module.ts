@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EsqueciSenhaPageRoutingModule } from './esqueci-senha-routing.module';
+import { TelaCodigoPageRoutingModule } from './tela-codigo-routing.module';
 
-import { EsqueciSenhaPage } from './esqueci-senha.page';
+import { TelaCodigoPage } from './tela-codigo.page';
 import { ComponentsModule } from '../../../components/components.module';
 
 @NgModule({
@@ -15,8 +15,8 @@ import { ComponentsModule } from '../../../components/components.module';
     FormsModule,
     IonicModule,
     ComponentsModule,
-    EsqueciSenhaPageRoutingModule
+    TelaCodigoPageRoutingModule
   ],
-  declarations: [EsqueciSenhaPage]
+  declarations: [TelaCodigoPage]
 })
-export class EsqueciSenhaPageModule {}
+export class TelaCodigoPageModule {}

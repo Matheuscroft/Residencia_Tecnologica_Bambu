@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./screens/auth/register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'tela-codigo',
+    loadChildren: () => import('./screens/auth/tela-codigo/tela-codigo.module').then( m => m.TelaCodigoPageModule)
+  },
 ];
 
 @NgModule({

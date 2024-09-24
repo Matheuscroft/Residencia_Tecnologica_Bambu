@@ -7,20 +7,21 @@
     </div>
   </div>
 
-  <p class="main-text">Esqueceu sua senha?</p>
+  <p class="main-text">INSIRA O CÓDIGO</p>
 
-  <p class="info-text">Insira seu e-mail para receber uma nova senha...</p>
+  <p class="info-text">Insira o código recebido no e-mail...</p>
 
   <div class="container-form">
     <ion-item lines="none">
       <ion-input 
-        type="email"
-        placeholder="E-mail"
+        type="text"
+        placeholder="Código Recebido"
         placeholder-style="color: white;"
         class="input">
       </ion-input>
     </ion-item>
 
-    <WhiteButton [text]="'Receber Código'" [routerLink]="['/tela-codigo']"></WhiteButton>
+    <ion-button expand="block" (click)="navigateToLogin()">Enviar Código</ion-button>
+    <WhiteButton [text]="'Enviar Código'" [routerLink]="['/login']"></WhiteButton>
   </div>
 </ion-content>
