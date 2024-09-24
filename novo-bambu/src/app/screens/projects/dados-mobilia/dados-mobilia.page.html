@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dados da Mobilia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <h2 class="header">• Tipo da mobília</h2>
+      </ion-col>
+      <ion-col size="12" class="chips-container">
+        <ion-chip *ngFor="let type of furnitureTypes" [outline]="!isSelected(type)" (click)="toggleSelection(type)">
+          <ion-label>{{ type }}</ion-label>
+        </ion-chip>
+      </ion-col>
+      <ion-col size="12">
+        <h2 class="header">• Itens da mobília</h2>
+      </ion-col>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item *ngFor="let item of roomItems" [routerLink]="item.link">
+            <ion-label>{{ item.name }}</ion-label>
+            <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button expand="block" class="button" routerLink="/home-com-projetos">
+          Salvar e continuar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dados do Ambiente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- CARACTERÍSTICAS DO PROJETO -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>CARACTERÍSTICAS DO PROJETO</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Contém restrições?</ion-label>
+        <ion-checkbox [(ngModel)]="checkboxes.restricoes" (ionChange)="setCheckbox('restricoes', $event)" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sustentabilidade?</ion-label>
+        <ion-checkbox [(ngModel)]="checkboxes.sustentabilidade" (ionChange)="setCheckbox('sustentabilidade', $event)" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Acessibilidade?</ion-label>
+        <ion-checkbox [(ngModel)]="checkboxes.acessibilidade" (ionChange)="setCheckbox('acessibilidade', $event)" color="secondary"></ion-checkbox>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- CARACTERÍSTICAS DO AMBIENTE -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>CARACTERÍSTICAS DO AMBIENTE</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Ventilação natural?</ion-label>
+        <ion-checkbox [(ngModel)]="checkboxes.ventilacaoNatural" (ionChange)="setCheckbox('ventilacaoNatural', $event)" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Isolamento acústico?</ion-label>
+        <ion-checkbox [(ngModel)]="checkboxes.isolamentoAcustico" (ionChange)="setCheckbox('isolamentoAcustico', $event)" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Eficiência energética?</ion-label>
+        <ion-checkbox [(ngModel)]="checkboxes.eficienciaEnergetica" (ionChange)="setCheckbox('eficienciaEnergetica', $event)" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Iluminação natural?</ion-label>
+        <ion-checkbox [(ngModel)]="checkboxes.iluminacaoNatural" (ionChange)="setCheckbox('iluminacaoNatural', $event)" color="secondary"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ventilação?</ion-label>
+        <ion-checkbox [(ngModel)]="checkboxes.ventilacao" (ionChange)="setCheckbox('ventilacao', $event)" color="secondary"></ion-checkbox>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ButtonLink [routerLink]="['/dados-mobilia']" text="Salvar e continuar"></ButtonLink>
+</ion-content>

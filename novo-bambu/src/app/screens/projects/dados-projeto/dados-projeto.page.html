@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Dados do Projeto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="dados-projeto-container">
+  <ion-item>
+    <ion-label position="floating">Nome do Projeto</ion-label>
+    <ion-input
+      [(ngModel)]="projetoData.titulo"
+      placeholder="Título do projeto"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Endereço do Projeto</ion-label>
+    <ion-input
+      [(ngModel)]="projetoData.enderecoProjeto"
+      placeholder="Endereço do projeto"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Tipo de Construção</ion-label>
+    <ion-input
+      [(ngModel)]="projetoData.tipoConstrucao"
+      placeholder="Resid. Comerc. Indust."
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Tamanho da Construção (m²)</ion-label>
+    <ion-input
+      [(ngModel)]="projetoData.tamanhoConstrucao"
+      placeholder="Em m²"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Orçamento Inicial</ion-label>
+    <ion-input
+      [(ngModel)]="projetoData.orcamento"
+      placeholder="Orçamento inicial"
+    ></ion-input>
+  </ion-item>
+
+  <InputLink  
+    placeholder="Orçamento inicial" 
+    [text]="'Orçamento inicial'"
+    autoCapitalize="none">></InputLink>
+
+    <ButtonLink [routerLink]="['/dados-ambiente']" text="Salvar e continuar"></ButtonLink>
+  
+</ion-content>

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DadosClientePageRoutingModule } from './dados-cliente-routing.module';
+import { HomeComProjetosPageRoutingModule } from './home-com-projetos-routing.module';
 
-import { DadosClientePage } from './dados-cliente.page';
+import { HomeComProjetosPage } from './home-com-projetos.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    DadosClientePageRoutingModule,
+    HomeComProjetosPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [DadosClientePage]
+  declarations: [HomeComProjetosPage]
 })
-export class DadosClientePageModule {}
+export class HomeComProjetosPageModule {}

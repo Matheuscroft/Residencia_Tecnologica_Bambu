@@ -1,0 +1,43 @@
+.calendar-container {
+    padding: 20px;
+  }
+  
+  .weekdays-row, .days-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .weekdays-row ion-col, .days-container ion-col {
+    text-align: center;
+    font-weight: bold;
+    width: 14.28%;
+  }
+  
+  .selection-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -60px;
+    padding-right: 40px;
+  }
+  
+  .buttons-container {
+    margin-bottom: 20px;
+  }
+  
+  .separator {
+    border-bottom: 2px solid #3A5340;
+    margin-top: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .day-info-container {
+    margin-bottom: 20px;
+  }
+  
+  ion-list ion-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  

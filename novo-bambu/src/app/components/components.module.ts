@@ -4,10 +4,12 @@ import { WhiteButtonComponent } from './buttons/white-button/white-button.compon
 import { IonicModule } from '@ionic/angular';
 import { InputLinkComponent } from './inputs/input-link/input-link.component';
 import { ButtonPlusComponent } from './buttons/button-plus/button-plus.component';
+import { ButtonLinkComponent } from './buttons/button-link/button-link.component';
+import { ButtonInfoComponent } from './buttons/button-info/button-info.component';
 
 @NgModule({
-  declarations: [WhiteButtonComponent, InputLinkComponent, ButtonPlusComponent],
+  declarations: [WhiteButtonComponent, InputLinkComponent, ButtonPlusComponent, ButtonLinkComponent, ButtonInfoComponent],
   imports: [CommonModule, IonicModule],
-  exports: [WhiteButtonComponent, InputLinkComponent, ButtonPlusComponent]  
+  exports: [WhiteButtonComponent, InputLinkComponent, ButtonPlusComponent, ButtonLinkComponent, ButtonInfoComponent]  
 })
 export class ComponentsModule {}

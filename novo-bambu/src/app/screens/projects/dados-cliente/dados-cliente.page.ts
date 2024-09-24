@@ -1,20 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-dados-cliente',
-  templateUrl: './dados-cliente.page.html',
-  styleUrls: ['./dados-cliente.page.scss'],
-})
-export class DadosClientePage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
-
-/*import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { DataContextService } from '../../../services/data-context.service';
 
@@ -44,4 +28,3 @@ export class DadosClientePage {
     this.navCtrl.navigateForward('/dados-projeto');
   }
 }
-*/

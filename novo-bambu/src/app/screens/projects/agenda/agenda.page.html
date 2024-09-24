@@ -1,13 +1,44 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>agenda</ion-title>
+    <ion-title>{{ month }} ({{ year }})</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">agenda</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-grid class="calendar-container">
+    <ion-row class="weekdays-row">
+      <ion-col *ngFor="let day of weekdays">{{ day }}</ion-col>
+    </ion-row>
+    <ion-row class="days-container">
+      <ion-col *ngFor="let day of daysOfMonth">{{ day }}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="selection-container">
+    <ion-button expand="block" color="secondary">Mês ↓</ion-button>
+    <ion-button expand="block" color="secondary">Ano ↓</ion-button>
+  </div>
+
+  <ion-grid class="buttons-container">
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="primary">Registrar<br />ação</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" color="primary">Configuração ⚙</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="separator"></div>
+
+  <div class="day-info-container">
+    <h2>09 de Julho</h2>
+    <ion-list>
+      <ion-item *ngFor="let event of events">
+        <ion-label>{{ event.text }} - {{ event.time }}</ion-label>
+        <ion-button fill="clear" color="primary" slot="end">✏</ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

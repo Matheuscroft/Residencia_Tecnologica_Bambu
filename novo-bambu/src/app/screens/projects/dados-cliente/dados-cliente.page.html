@@ -1,3 +1,8 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dados do Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
   <div class="container">
     <ion-item>
@@ -5,7 +10,7 @@
       <ion-input
         [(ngModel)]="clienteData.nome"
         placeholder="Nome"
-        (ionChange)="setClienteData('nome', ($event as CustomEvent).detail.value)"
+        (ionChange)="setClienteData('nome', $event.detail.value)"
       ></ion-input>
     </ion-item>
 
@@ -14,7 +19,7 @@
       <ion-input
         [(ngModel)]="clienteData.endereco"
         placeholder="Endereço"
-        (ionChange)="setClienteData('endereco', ($event as CustomEvent).detail.value)"
+        (ionChange)="setClienteData('endereco', $event.detail.value)"
       ></ion-input>
     </ion-item>
 
@@ -25,7 +30,7 @@
         placeholder="Telefone"
         type="tel"
         maxlength="11"
-        (ionChange)="setClienteData('telefone', ($event as CustomEvent).detail.value)"
+        (ionChange)="setClienteData('telefone', $event.detail.value)"
       ></ion-input>
     </ion-item>
 
@@ -35,10 +40,17 @@
         [(ngModel)]="clienteData.email"
         placeholder="Email"
         type="email"
-        (ionChange)="setClienteData('email', ($event as CustomEvent).detail.value)"
+        (ionChange)="setClienteData('email', $event.detail.value)"
       ></ion-input>
     </ion-item>
 
-    <ion-button expand="block" (click)="saveAndContinue()">Salvar e continuar</ion-button>
+    <InputLink  
+    placeholder="Email do cliente" 
+    [text]="'Email'"
+    keyboardType="email"
+    autoCapitalize="none">></InputLink>
+
+    <ButtonLink [routerLink]="['/dados-projeto']" text="Salvar e continuar"></ButtonLink>
+
   </div>
 </ion-content>

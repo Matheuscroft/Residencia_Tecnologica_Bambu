@@ -40,6 +40,26 @@ const routes: Routes = [
     path: 'agenda',
     loadChildren: () => import('./screens/projects/agenda/agenda.module').then( m => m.AgendaPageModule)
   },
+  {
+    path: 'dados-projeto',
+    loadChildren: () => import('./screens/projects/dados-projeto/dados-projeto.module').then( m => m.DadosProjetoPageModule)
+  },
+  {
+    path: 'dados-ambiente',
+    loadChildren: () => import('./screens/projects/dados-ambiente/dados-ambiente.module').then( m => m.DadosAmbientePageModule)
+  },
+  {
+    path: 'dados-mobilia',
+    loadChildren: () => import('./screens/projects/dados-mobilia/dados-mobilia.module').then( m => m.DadosMobiliaPageModule)
+  },
+  {
+    path: 'home-com-projetos',
+    loadChildren: () => import('./screens/projects/home-com-projetos/home-com-projetos.module').then( m => m.HomeComProjetosPageModule)
+  },
+  {
+    path: 'tela-sobre-projetos',
+    loadChildren: () => import('./screens/projects/tela-sobre-projetos/tela-sobre-projetos.module').then( m => m.TelaSobreProjetosPageModule)
+  },
 ];
 
 @NgModule({

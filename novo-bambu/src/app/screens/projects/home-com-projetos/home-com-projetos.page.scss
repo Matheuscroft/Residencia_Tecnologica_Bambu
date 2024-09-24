@@ -1,0 +1,57 @@
+.home-com-projetos-container {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* CORES.branco */
+  
+    .project-card {
+      width: 90%;
+      background-color: #007bff; /* CORES.principal */
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffffff; /* CORES.branco */
+        margin-bottom: 10px;
+      }
+  
+      .progress-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+  
+        .phase-text,
+        .progress-text {
+          font-size: 14px;
+          color: #ffffff; /* CORES.branco */
+        }
+      }
+  
+      ion-progress-bar {
+        width: 100%;
+        margin-bottom: 10px;
+        --height: 20px;
+        --background: #cc8879; /* unfilledColor */
+      }
+  
+      .date-text {
+        font-size: 14px;
+        color: #ffffff; /* CORES.branco */
+      }
+  
+      ion-button {
+        --color: #ffffff; /* Text color */
+      }
+    }
+  }
+  
