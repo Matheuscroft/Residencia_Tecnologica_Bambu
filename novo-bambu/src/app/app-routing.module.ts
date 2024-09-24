@@ -32,6 +32,14 @@ const routes: Routes = [
     path: 'tela-codigo',
     loadChildren: () => import('./screens/auth/tela-codigo/tela-codigo.module').then( m => m.TelaCodigoPageModule)
   },
+  {
+    path: 'dados-cliente',
+    loadChildren: () => import('./screens/projects/dados-cliente/dados-cliente.module').then( m => m.DadosClientePageModule)
+  },
+  {
+    path: 'agenda',
+    loadChildren: () => import('./screens/projects/agenda/agenda.module').then( m => m.AgendaPageModule)
+  },
 ];
 
 @NgModule({

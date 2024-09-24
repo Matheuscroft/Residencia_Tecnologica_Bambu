@@ -21,7 +21,12 @@
       </ion-input>
     </ion-item>
 
-    <ion-button expand="block" (click)="navigateToLogin()">Enviar Código</ion-button>
+    <InputLink  
+    placeholder="Código Recebido" 
+    [text]="'Código'"
+    keyboardType="email"
+    autoCapitalize="none">></InputLink>
+
     <WhiteButton [text]="'Enviar Código'" [routerLink]="['/login']"></WhiteButton>
   </div>
 </ion-content>

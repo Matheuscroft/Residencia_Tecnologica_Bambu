@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-item>
+      <ion-label position="floating">Nome do cliente</ion-label>
+      <ion-input
+        [(ngModel)]="clienteData.nome"
+        placeholder="Nome"
+        (ionChange)="setClienteData('nome', ($event as CustomEvent).detail.value)"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Endereço do cliente</ion-label>
+      <ion-input
+        [(ngModel)]="clienteData.endereco"
+        placeholder="Endereço"
+        (ionChange)="setClienteData('endereco', ($event as CustomEvent).detail.value)"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Telefone do cliente</ion-label>
+      <ion-input
+        [(ngModel)]="clienteData.telefone"
+        placeholder="Telefone"
+        type="tel"
+        maxlength="11"
+        (ionChange)="setClienteData('telefone', ($event as CustomEvent).detail.value)"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email do cliente</ion-label>
+      <ion-input
+        [(ngModel)]="clienteData.email"
+        placeholder="Email"
+        type="email"
+        (ionChange)="setClienteData('email', ($event as CustomEvent).detail.value)"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="saveAndContinue()">Salvar e continuar</ion-button>
+  </div>
+</ion-content>

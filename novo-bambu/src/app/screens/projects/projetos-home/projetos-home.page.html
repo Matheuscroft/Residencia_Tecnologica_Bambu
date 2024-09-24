@@ -1,13 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>projetosHome</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="projetos-home-container">
+  <div class="cabecalho">
+    <img src="assets/icons/iconLogo.png" alt="Logo" />
+    <ion-text class="name-page">Projetos</ion-text>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">projetosHome</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="circle-container">
+    <div class="outer-circle">
+      <div class="inner-circle">
+        <img src="assets/icons/iconLogo.png" alt="Logo" class="image" />
+      </div>
+    </div>
+  </div>
+
+  <ion-text class="main-text">
+    Não existem projetos no<br />momento
+  </ion-text>
+  
+  <ion-text class="info-text">
+    Adicionar um<br />novo projeto
+  </ion-text>
+
+  <ButtonPlus imgSource="assets/icons/iconAdd.png" [routerLink]="['/dados-cliente']"></ButtonPlus>
+
+  <ButtonPlus imgSource="assets/icons/iconAdd.png" [routerLink]="['/agenda']"></ButtonPlus>
+
+  <ion-text class="info-text">AGENDA!</ion-text>
 </ion-content>

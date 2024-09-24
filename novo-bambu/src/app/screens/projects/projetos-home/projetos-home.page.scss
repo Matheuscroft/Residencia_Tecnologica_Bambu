@@ -1,0 +1,77 @@
+.projetos-home-container {
+    background-color: #ffffff;
+  
+    .cabecalho {
+      background-color: #3A5340;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+  
+      img {
+        margin-left: 10px;
+      }
+  
+      .name-page {
+        font-size: 25px;
+        color: #ffffff;
+        margin-left: 10px;
+        flex: 1;
+      }
+    }
+  
+    .circle-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 25%;
+      opacity: 0.9;
+  
+      .outer-circle {
+        border: 3px solid #728056;
+        border-radius: 100%;
+        padding: 5px;
+        opacity: 0.9;
+  
+        .inner-circle {
+          background-color: #728056;
+          border-radius: 100%;
+          padding: 10px;
+          opacity: 0.9;
+  
+          .image {
+            width: 100px;
+            height: 100px;
+          }
+        }
+      }
+    }
+  
+    .main-text {
+      color: #728056;
+      font-size: 20px;
+      text-align: center;
+      margin-top: 20px;
+      opacity: 0.9;
+    }
+  
+    .info-text {
+      color: #728056;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+  
+    .botoes-temporarios {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 20px;
+    }
+  
+    ion-button {
+      .plus {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+  

@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 16px;
+  }
+  
+  ion-item {
+    margin-top: 12px;
+    --background: var(--ion-color-light);
+    border-radius: 10px;
+  }
+  
+  ion-input {
+    color: var(--ion-color-dark);
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  
