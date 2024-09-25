@@ -11,10 +11,14 @@
         <h2 class="header">• Tipo da mobília</h2>
       </ion-col>
       <ion-col size="12" class="chips-container">
-        <ion-chip *ngFor="let type of furnitureTypes" [outline]="!isSelected(type)" (click)="toggleSelection(type)">
+        <ion-chip *ngFor="let type of furnitureTypes" 
+                  [outline]="!isSelected(type)" 
+                  (click)="toggleSelection(type)" 
+                  [class.selected]="isSelected(type)">
           <ion-label>{{ type }}</ion-label>
         </ion-chip>
       </ion-col>
+
       <ion-col size="12">
         <h2 class="header">• Itens da mobília</h2>
       </ion-col>

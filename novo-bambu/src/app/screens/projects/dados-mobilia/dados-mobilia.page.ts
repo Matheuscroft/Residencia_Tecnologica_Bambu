@@ -20,6 +20,11 @@ export class DadosMobiliaPage {
     { name: 'Itens Antessala', link: '/itens-antessala' },
   ];
 
+  constructor() {
+    console.log("this.roomItems");
+    console.log(this.roomItems); // Verifique se os itens estão carregando corretamente
+  }
+
   toggleSelection(type: string) {
     const index = this.selectedTypes.indexOf(type);
     if (index > -1) {

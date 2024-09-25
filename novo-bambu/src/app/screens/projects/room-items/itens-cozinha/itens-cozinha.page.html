@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Itens Cozinha</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <div *ngFor="let item of roomItems; let i = index">
+      <ion-item (click)="handlePress(i)">
+        <ion-label>{{ item }}</ion-label>
+        <ion-icon name="chevron-down-outline" *ngIf="expandedIndex !== i"></ion-icon>
+        <ion-icon name="chevron-up-outline" *ngIf="expandedIndex === i"></ion-icon>
+      </ion-item>
+
+      <div *ngIf="expandedIndex === i" class="dropdown-content">
+        <div class="chips-container">
+          <ion-chip *ngFor="let chip of getChipsForItem(item)" (click)="handleChipPress(chip, i)"
+            [color]="isSelected(chip, i) ? 'secondary' : 'light'">
+            <ion-label>{{ chip }}</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <ion-button expand="block" (click)="goToNextPage()">Salvar e continuar</ion-button>
+</ion-content>

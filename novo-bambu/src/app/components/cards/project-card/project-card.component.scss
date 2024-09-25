@@ -1,0 +1,34 @@
+$branco: #FFFFFF;
+$principal: #728056;
+$secundaria: #3A5340;
+$terciaria: #D16A47;
+$cinza: #4F4F4F;
+$preto: #000;
+
+.card {
+  width: 90%;
+  background-color: $principal;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: $branco;
+    margin-bottom: 10px;
+  }
+
+  .progress-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    color: $branco;
+  }
+
+  p {
+    font-size: 14px;
+    color: $branco;
+  }
+}

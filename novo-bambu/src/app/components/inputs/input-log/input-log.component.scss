@@ -1,0 +1,15 @@
+@import 'src/styles/colors';
+
+.input {
+  border-radius: 10px;
+  background-color: $principal;
+  color: $branco;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  font-size: 16px;
+  width: 90%;
+}

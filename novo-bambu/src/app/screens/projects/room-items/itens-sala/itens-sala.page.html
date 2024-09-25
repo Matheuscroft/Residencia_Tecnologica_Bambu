@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dados da Mobilia - Sala</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ng-container *ngFor="let item of roomItems; let index = index">
+      <ion-item (click)="handlePress(index)" detail="false">
+        <ion-label>{{ item }}</ion-label>
+        <ion-icon name="chevron-down" slot="end" *ngIf="expandedIndex !== index"></ion-icon>
+        <ion-icon name="chevron-up" slot="end" *ngIf="expandedIndex === index"></ion-icon>
+      </ion-item>
+      <ion-list *ngIf="expandedIndex === index">
+        <ion-item-group>
+          <ng-container [ngSwitch]="item">
+            <ng-container *ngSwitchCase="'Itens Sala - Chão'">
+              <ion-item
+                *ngFor="let chip of chipItemsChao"
+                (click)="handleChipPress(chip, 'chao')"
+                [ngClass]="{'selected-chip': selectedChips.chao.includes(chip)}"
+              >
+                <ion-label class="chip-text">{{ chip }}</ion-label>
+              </ion-item>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Itens Sala - Parede'">
+              <ion-item
+                *ngFor="let chip of chipItemsParede"
+                (click)="handleChipPress(chip, 'parede')"
+                [ngClass]="{'selected-chip': selectedChips.parede.includes(chip)}"
+              >
+                <ion-label class="chip-text">{{ chip }}</ion-label>
+              </ion-item>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Itens Sala - Teto'">
+              <ion-item
+                *ngFor="let chip of chipItemsTeto"
+                (click)="handleChipPress(chip, 'teto')"
+                [ngClass]="{'selected-chip': selectedChips.teto.includes(chip)}"
+              >
+                <ion-label class="chip-text">{{ chip }}</ion-label>
+              </ion-item>
+            </ng-container>
+          </ng-container>
+        </ion-item-group>
+      </ion-list>
+    </ng-container>
+  </ion-list>
+
+  <ion-footer>
+    <ion-button expand="full" routerLink="/dados-mobilia">Salvar e continuar</ion-button>
+  </ion-footer>
+</ion-content>

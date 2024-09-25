@@ -1,0 +1,10 @@
+<div class="card">
+  <h2>{{ projectTitle }}</h2>
+  <div class="progress-container">
+    <span>Fase inicial</span>
+    <span>{{ progress }}%</span>
+  </div>
+  <ion-progress-bar [value]="progress / 100" color="tertiary"></ion-progress-bar>
+  <p>Início: {{ startDate | date: 'shortDate' }}</p>
+  <p>Previsão de entrega: {{ endDate | date: 'shortDate' }}</p>
+</div>

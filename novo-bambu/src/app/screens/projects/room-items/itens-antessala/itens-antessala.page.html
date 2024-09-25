@@ -1,0 +1,33 @@
+<!-- itens-antessala.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dados da Mobilia - Antessala</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of roomItems; let i = index">
+      <ion-label (click)="handlePress(i)">
+        {{ item }}
+        <ion-icon slot="end" [name]="expandedIndex === i ? 'chevron-up' : 'chevron-down'"></ion-icon>
+      </ion-label>
+      <ion-grid *ngIf="expandedIndex === i">
+        <ion-row>
+          <ion-col *ngFor="let chip of getChips(item)">
+            <ion-chip
+              [outline]="!isSelected(chip, getChipType(item))"
+              color="primary"
+              (click)="handleChipPress(chip, getChipType(item))"
+            >
+              <ion-label>{{ chip }}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" [routerLink]="['../DadosMobilia']">Salvar e continuar</ion-button>
+  <ion-button expand="block" (click)="goToNextPage()">Salvar e continuar</ion-button>
+</ion-content>

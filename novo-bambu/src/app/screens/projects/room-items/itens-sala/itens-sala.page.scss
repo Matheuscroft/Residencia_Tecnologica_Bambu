@@ -1,0 +1,35 @@
+ion-item {
+    --background: #ffffff;
+    --border-color: #ccc;
+    --border-radius: 5px;
+    --padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .selected-chip {
+    --background: #d3d3d3;
+    --border-color: #d3d3d3;
+  }
+  
+  .chip-text {
+    color: #000;
+  }
+  
+  ion-button {
+    background-color: #3880ff;
+    color: #fff;
+  }
+  
+  ion-icon {
+    font-size: 24px;
+  }
+  
+  ion-list {
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+  
+  ion-footer {
+    padding: 15px;
+  }
+  
