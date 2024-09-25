@@ -1,15 +1,38 @@
-ion-item {
-    --background: #ffffff;
+
+
+/*ion-item {
+    --background: #3A5340;
     --border-color: #ccc;
     --border-radius: 5px;
     --padding: 15px;
     margin-bottom: 10px;
+  }*/
+
+  ion-item {
+    background-color: #3A5340; /* Use diretamente para aplicar a cor de fundo */
+    border: 1px solid #ccc; /* Adiciona a borda */
+    border-radius: 5px; /* Aplica a borda arredondada */
+    padding: 15px; /* Define o padding diretamente */
+    margin-bottom: 10px; /* Define o espaçamento entre itens */
+  }
+
+  ion-item::part(native) {
+    background-color: #fff; /* Exemplo */
+    color: #3A5340
   }
   
-  .selected-chip {
+  
+  
+ /* .selected-chip {
     --background: #d3d3d3;
     --border-color: #d3d3d3;
+  }*/
+
+  .selected-chip {
+    background-color: #d3d3d3; /* Cor do fundo quando selecionado */
+    border-color: #d3d3d3; /* Cor da borda */
   }
+  
   
   .chip-text {
     color: #000;
@@ -18,10 +41,13 @@ ion-item {
   ion-button {
     background-color: #3880ff;
     color: #fff;
+    --border-radius: 10px;
   }
+  
   
   ion-icon {
     font-size: 24px;
+    color: #3A5340;
   }
   
   ion-list {
