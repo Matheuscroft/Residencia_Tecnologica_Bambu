@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ItensCozinhaPageRoutingModule } from './itens-cozinha-routing.module';
 
 import { ItensCozinhaPage } from './itens-cozinha.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ItensCozinhaPageRoutingModule
+    ItensCozinhaPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ItensCozinhaPage]
 })

@@ -1,8 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Dados da Mobilia - Sala</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ToolbarVoltar 
+[title]="'Dados da Mobília - Sala'" 
+[defaultHref]="'/dados-mobilia'">
+</ToolbarVoltar>
 
 <ion-content>
   <ion-list>
@@ -49,6 +48,6 @@
   </ion-list>
 
   <ion-footer>
-    <ion-button expand="full" routerLink="/dados-mobilia">Salvar e continuar</ion-button>
+    <ButtonLink [routerLink]="['/dados-mobilia']" text="Salvar e continuar"></ButtonLink>
   </ion-footer>
 </ion-content>

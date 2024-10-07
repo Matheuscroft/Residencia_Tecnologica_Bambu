@@ -1,8 +1,7 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Itens Cozinha</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ToolbarVoltar 
+[title]="'Dados da Mobília - Itens Cozinha'" 
+[defaultHref]="'/dados-mobilia'">
+</ToolbarVoltar>
 
 <ion-content>
   <ion-card>
@@ -24,5 +23,5 @@
     </div>
   </ion-card>
 
-  <ion-button expand="block" (click)="goToNextPage()">Salvar e continuar</ion-button>
+  <ButtonLink [routerLink]="['/dados-mobilia']" text="Salvar e continuar"></ButtonLink>
 </ion-content>

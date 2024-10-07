@@ -1,55 +1,51 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Dados do Projeto</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ToolbarVoltar 
+[title]="'Dados do Projeto'" 
+[defaultHref]="'/dados-cliente'">
+</ToolbarVoltar>
 
 <ion-content class="dados-projeto-container">
-  <ion-item>
-    <ion-label position="floating">Nome do Projeto</ion-label>
-    <ion-input
-      [(ngModel)]="projetoData.titulo"
-      placeholder="Título do projeto"
-    ></ion-input>
-  </ion-item>
+  <div class="container">
+  <InputLink 
+    placeholder="Título do projeto" 
+    [(ngModel)]="projetoData.titulo" 
+    [text]="'Nome do Projeto'" 
+    keyboardType="text"
+      autoCapitalize="none">
+    </InputLink>
 
-  <ion-item>
-    <ion-label position="floating">Endereço do Projeto</ion-label>
-    <ion-input
-      [(ngModel)]="projetoData.enderecoProjeto"
-      placeholder="Endereço do projeto"
-    ></ion-input>
-  </ion-item>
+  <InputLink 
+    placeholder="Endereço do projeto" 
+    [(ngModel)]="projetoData.enderecoProjeto" 
+    [text]="'Endereço do Projeto'" 
+    keyboardType="text"
+      autoCapitalize="none">
+    </InputLink>
 
-  <ion-item>
-    <ion-label position="floating">Tipo de Construção</ion-label>
-    <ion-input
-      [(ngModel)]="projetoData.tipoConstrucao"
-      placeholder="Resid. Comerc. Indust."
-    ></ion-input>
-  </ion-item>
+  <InputLink 
+    placeholder="Resid. Comerc. Indust." 
+    [(ngModel)]="projetoData.tipoConstrucao" 
+    [text]="'Tipo de Construção'" 
+    keyboardType="text"
+      autoCapitalize="none">
+    </InputLink>
 
-  <ion-item>
-    <ion-label position="floating">Tamanho da Construção (m²)</ion-label>
-    <ion-input
-      [(ngModel)]="projetoData.tamanhoConstrucao"
-      placeholder="Em m²"
-    ></ion-input>
-  </ion-item>
+  <InputLink 
+    placeholder="Em m²" 
+    [(ngModel)]="projetoData.tamanhoConstrucao" 
+    [text]="'Tamanho da Construção (m²)'" 
+    keyboardType="text"
+      autoCapitalize="none">
+    </InputLink>
 
-  <ion-item>
-    <ion-label position="floating">Orçamento Inicial</ion-label>
-    <ion-input
-      [(ngModel)]="projetoData.orcamento"
-      placeholder="Orçamento inicial"
-    ></ion-input>
-  </ion-item>
-
-  <InputLink  
+  <InputLink 
     placeholder="Orçamento inicial" 
-    [text]="'Orçamento inicial'"
-    autoCapitalize="none">></InputLink>
+    [(ngModel)]="projetoData.orcamento" 
+    [text]="'Orçamento Inicial'" 
+    keyboardType="text"
+      autoCapitalize="none">
+    </InputLink>
 
     <ButtonLink [routerLink]="['/dados-ambiente']" text="Salvar e continuar"></ButtonLink>
   
+</div>
 </ion-content>

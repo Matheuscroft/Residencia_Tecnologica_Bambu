@@ -5,13 +5,14 @@ ion-card-title {
   }
   
   ion-card {
-    background-color: var(--ion-color-primary);
+    background-color: #728056;
     margin: 10px;
     border-radius: 10px;
   }
   
   ion-item {
-    --background: var(--ion-color-light);
+    --background: white;
+    color: #728056;
   }
   
   ion-label {
@@ -19,7 +20,11 @@ ion-card-title {
     color: var(--ion-color-secondary);
   }
   
-  ion-checkbox {
-    margin-right: 20px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 16px;
+    min-height: 100%;
+    height: 100%;
   }
-  

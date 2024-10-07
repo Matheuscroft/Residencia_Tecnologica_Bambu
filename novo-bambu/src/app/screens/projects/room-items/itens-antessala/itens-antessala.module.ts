@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ItensAntessalaPageRoutingModule } from './itens-antessala-routing.module';
 
 import { ItensAntessalaPage } from './itens-antessala.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ItensAntessalaPageRoutingModule
+    ItensAntessalaPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ItensAntessalaPage]
 })

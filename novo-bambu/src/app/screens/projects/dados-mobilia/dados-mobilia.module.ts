@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DadosMobiliaPageRoutingModule } from './dados-mobilia-routing.module';
 
 import { DadosMobiliaPage } from './dados-mobilia.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DadosMobiliaPageRoutingModule
+    DadosMobiliaPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [DadosMobiliaPage]
 })

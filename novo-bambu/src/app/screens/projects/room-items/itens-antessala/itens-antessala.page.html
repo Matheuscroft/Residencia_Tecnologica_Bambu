@@ -1,9 +1,7 @@
-<!-- itens-antessala.page.html -->
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Dados da Mobilia - Antessala</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ToolbarVoltar 
+[title]="'Dados da Mobília - Antessala'" 
+[defaultHref]="'/dados-mobilia'">
+</ToolbarVoltar>
 
 <ion-content>
   <ion-list>
@@ -28,6 +26,5 @@
     </ion-item>
   </ion-list>
 
-  <ion-button expand="full" [routerLink]="['../DadosMobilia']">Salvar e continuar</ion-button>
-  <ion-button expand="block" (click)="goToNextPage()">Salvar e continuar</ion-button>
+  <ButtonLink [routerLink]="['/dados-mobilia']" text="Salvar e continuar"></ButtonLink>
 </ion-content>

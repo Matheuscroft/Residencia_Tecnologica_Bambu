@@ -1,11 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Dados do Ambiente</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ToolbarVoltar 
+[title]="'Dados do Ambiente'" 
+[defaultHref]="'/dados-projeto'">
+</ToolbarVoltar>
 
 <ion-content>
-  <!-- CARACTERÍSTICAS DO PROJETO -->
+  <div class="container">
   <ion-card>
     <ion-card-header>
       <ion-card-title>CARACTERÍSTICAS DO PROJETO</ion-card-title>
@@ -56,4 +55,5 @@
   </ion-card>
 
   <ButtonLink [routerLink]="['/dados-mobilia']" text="Salvar e continuar"></ButtonLink>
+</div>
 </ion-content>
