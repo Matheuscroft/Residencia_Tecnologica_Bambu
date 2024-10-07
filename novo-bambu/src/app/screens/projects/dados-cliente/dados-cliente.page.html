@@ -1,54 +1,48 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/projetos-home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Dados do Cliente</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
   <div class="container">
-    <ion-item>
-      <ion-label position="floating">Nome do cliente</ion-label>
-      <ion-input
-        [(ngModel)]="clienteData.nome"
-        placeholder="Nome"
-        (ionChange)="setClienteData('nome', $event.detail.value)"
-      ></ion-input>
-    </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Endereço do cliente</ion-label>
-      <ion-input
-        [(ngModel)]="clienteData.endereco"
-        placeholder="Endereço"
-        (ionChange)="setClienteData('endereco', $event.detail.value)"
-      ></ion-input>
-    </ion-item>
+    <InputLink 
+    placeholder="Nome do cliente" 
+    [(ngModel)]="clienteData.nome" 
+    [text]="'Nome'" 
+    keyboardType="text"
+      autoCapitalize="none">
+    </InputLink>
+    
 
-    <ion-item>
-      <ion-label position="floating">Telefone do cliente</ion-label>
-      <ion-input
-        [(ngModel)]="clienteData.telefone"
-        placeholder="Telefone"
-        type="tel"
-        maxlength="11"
-        (ionChange)="setClienteData('telefone', $event.detail.value)"
-      ></ion-input>
-    </ion-item>
+    <InputLink 
+    placeholder="Endereço do cliente" 
+    [(ngModel)]="clienteData.endereco" 
+    [text]="'Endereço'" 
+    keyboardType="text"
+      autoCapitalize="none">
+    </InputLink>
 
-    <ion-item>
-      <ion-label position="floating">Email do cliente</ion-label>
-      <ion-input
-        [(ngModel)]="clienteData.email"
-        placeholder="Email"
-        type="email"
-        (ionChange)="setClienteData('email', $event.detail.value)"
-      ></ion-input>
-    </ion-item>
+    <InputLink 
+    placeholder="Telefone do cliente" 
+    [(ngModel)]="clienteData.telefone" 
+    [text]="'Telefone'" 
+    keyboardType="tel"
+      autoCapitalize="none"
+      [maxlength]="11">
+    </InputLink>
 
-    <InputLink  
-    placeholder="Email do cliente" 
-    [text]="'Email'"
+
+    <InputLink 
+    placeholder="E-mail do cliente" 
+    [(ngModel)]="clienteData.email" 
+    [text]="'E-mail'" 
     keyboardType="email"
-    autoCapitalize="none">></InputLink>
+      autoCapitalize="none">
+    </InputLink>
 
     <ButtonLink [routerLink]="['/dados-projeto']" text="Salvar e continuar"></ButtonLink>
 

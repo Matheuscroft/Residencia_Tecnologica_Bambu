@@ -1,9 +1,25 @@
 <ion-item>
-  <ion-label position="floating">{{ text }}</ion-label>
   <ion-input 
     [placeholder]="placeholder" 
     [type]="keyboardType" 
-    [autocapitalize]="autoCapitalize" 
-    style="color: white; background-color: var(--ion-color-primary);" 
-  ></ion-input>
+    label="{{ text }}" 
+    labelPlacement="floating"
+    [autocapitalize]="autoCapitalize"
+    [value]="value" 
+    (ionInput)="updateValue($event)"
+    *ngIf="maxlength; else noMaxLength"
+    [maxlength]="maxlength">
+  </ion-input>
+
+  <ng-template #noMaxLength>
+    <ion-input 
+      [placeholder]="placeholder" 
+      [type]="keyboardType" 
+      label="{{ text }}" 
+      labelPlacement="floating"
+      [autocapitalize]="autoCapitalize"
+      [value]="value" 
+      (ionInput)="updateValue($event)">
+    </ion-input>
+  </ng-template>
 </ion-item>
