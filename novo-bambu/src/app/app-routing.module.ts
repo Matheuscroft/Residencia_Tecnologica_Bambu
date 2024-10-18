@@ -49,8 +49,8 @@ const routes: Routes = [
     loadChildren: () => import('./screens/projects/dados-ambiente/dados-ambiente.module').then( m => m.DadosAmbientePageModule)
   },
   {
-    path: 'dados-mobilia',
-    loadChildren: () => import('./screens/projects/dados-mobilia/dados-mobilia.module').then( m => m.DadosMobiliaPageModule)
+    path: 'dados-ambientes-tamanho',
+    loadChildren: () => import('./screens/projects/dados-ambientes-tamanho/dados-ambientes-tamanho.module').then( m => m.DadosAmbientesTamanhoPageModule)
   },
   {
     path: 'home-com-projetos',
@@ -59,22 +59,6 @@ const routes: Routes = [
   {
     path: 'tela-sobre-projetos',
     loadChildren: () => import('./screens/projects/tela-sobre-projetos/tela-sobre-projetos.module').then( m => m.TelaSobreProjetosPageModule)
-  },
-  {
-    path: 'itens-antessala',
-    loadChildren: () => import('./screens/projects/room-items/itens-antessala/itens-antessala.module').then( m => m.ItensAntessalaPageModule)
-  },
-  {
-    path: 'itens-cozinha',
-    loadChildren: () => import('./screens/projects/room-items/itens-cozinha/itens-cozinha.module').then( m => m.ItensCozinhaPageModule)
-  },
-  {
-    path: 'itens-quarto',
-    loadChildren: () => import('./screens/projects/room-items/itens-quarto/itens-quarto.module').then( m => m.ItensQuartoPageModule)
-  },
-  {
-    path: 'itens-sala',
-    loadChildren: () => import('./screens/projects/room-items/itens-sala/itens-sala.module').then( m => m.ItensSalaPageModule)
   },
 ];
 

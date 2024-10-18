@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { DataContextService } from '../../../services/data-context.service';
 
 @Component({
   selector: 'app-dados-ambiente',
@@ -8,24 +6,31 @@ import { DataContextService } from '../../../services/data-context.service';
   styleUrls: ['./dados-ambiente.page.scss'],
 })
 export class DadosAmbientePage {
-  checkboxes: any;
-  projetoData: any;
+  
+  furnitureTypes: string[] = [
+    'Rústica', 'Escandinava', 'Art Deco',  'Boêmio',  'Clássica',
+    'Moderno', 'Contemporânea', 'Industrial','Colonial',
+  ];
 
-  constructor(private dataContext: DataContextService, private navCtrl: NavController) {
-    this.checkboxes = this.dataContext.checkboxes;
-    this.projetoData = this.dataContext.projetoData;
+  selectedTypes: string[] = [];
+
+  constructor() {
+    
   }
 
-  setCheckbox(key: string, event: any) {
-    this.checkboxes[key] = event.detail.checked;
+  toggleSelection(type: string) {
+    const index = this.selectedTypes.indexOf(type);
+    if (index > -1) {
+      this.selectedTypes.splice(index, 1);
+    } else {
+      this.selectedTypes.push(type);
+    }
   }
 
-  saveState() {
-    this.dataContext.setProjetoData({
-      ...this.projetoData,
-      ...this.checkboxes
-    });
-    this.navCtrl.navigateForward('/dados-mobilia');
+  isSelected(type: string): boolean {
+    return this.selectedTypes.includes(type);
   }
+
+  
 }
 

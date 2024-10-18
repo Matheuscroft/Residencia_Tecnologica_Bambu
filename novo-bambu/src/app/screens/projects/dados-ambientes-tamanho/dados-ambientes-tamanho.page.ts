@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-dados-mobilia',
-  templateUrl: './dados-mobilia.page.html',
-  styleUrls: ['./dados-mobilia.page.scss'],
+  selector: 'app-dados-ambientes-tamanho',
+  templateUrl: './dados-ambientes-tamanho.page.html',
+  styleUrls: ['./dados-ambientes-tamanho.page.scss'],
 })
-export class DadosMobiliaPage {
+export class DadosAmbientesTamanhoPage {
   furnitureTypes: string[] = [
     'Rústica', 'Escandinava', 'Art Deco',  'Boêmio',  'Clássica',
     'Moderno', 'Contemporânea', 'Industrial','Colonial',
@@ -13,16 +13,9 @@ export class DadosMobiliaPage {
 
   selectedTypes: string[] = [];
 
-  roomItems = [
-    { name: 'Itens Sala', link: '/itens-sala' },
-    { name: 'Itens Quarto', link: '/itens-quarto' },
-    { name: 'Itens Cozinha', link: '/itens-cozinha' },
-    { name: 'Itens Antessala', link: '/itens-antessala' },
-  ];
+  
 
   constructor() {
-    console.log("this.roomItems");
-    console.log(this.roomItems); // Verifique se os itens estão carregando corretamente
   }
 
   toggleSelection(type: string) {

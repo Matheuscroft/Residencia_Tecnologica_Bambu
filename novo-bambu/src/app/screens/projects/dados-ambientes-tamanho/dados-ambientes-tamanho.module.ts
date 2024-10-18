@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ItensAntessalaPageRoutingModule } from './itens-antessala-routing.module';
+import { DadosAmbientesTamanhoPageRoutingModule } from './dados-ambientes-tamanho-routing.module';
 
-import { ItensAntessalaPage } from './itens-antessala.page';
+import { DadosAmbientesTamanhoPage } from './dados-ambientes-tamanho.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    ItensAntessalaPageRoutingModule,
+    DadosAmbientesTamanhoPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [ItensAntessalaPage]
+  declarations: [DadosAmbientesTamanhoPage]
 })
-export class ItensAntessalaPageModule {}
+export class DadosAmbientesTamanhoPageModule {}
