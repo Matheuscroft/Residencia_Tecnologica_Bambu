@@ -1,12 +1,22 @@
+
 ion-toolbar {
-    --background: #3A5340;
-    --border-color: #e0e0e0;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-  }
-  
-  
-  ion-title {
-    font-weight: bold;
-    text-align: center;
-  }
+  --background: #3a5340;
+  --border-color: #e0e0e0;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.toolbar-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+ion-buttons {
+  color: white;
+}
+
+ion-title {
+  text-align: left;
+  color: white;
+}

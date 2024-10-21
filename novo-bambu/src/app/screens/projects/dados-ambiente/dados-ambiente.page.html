@@ -1,24 +1,25 @@
-<ToolbarVoltar 
-[title]="'Dados dos Ambientes'" 
-[defaultHref]="'/dados-projeto'">
+<ToolbarVoltar [title]="'Dados dos Ambientes'" [defaultHref]="'/dados-projeto'">
 </ToolbarVoltar>
 
 <ion-content>
-  <h2>CU</h2>
-  <h2 class="header">• Tipo da mobília</h2>
-    <ion-col size="12" class="chips-container">
-      <ion-chip *ngFor="let type of furnitureTypes" 
-                [outline]="!isSelected(type)" 
-                (click)="toggleSelection(type)" 
-                [class.selected]="isSelected(type)">
-        <ion-label>{{ type }}</ion-label>
-      </ion-chip>
-    </ion-col>
+  <h2 class="header">• Selecione os ambientes</h2>
+
+  <div class="container-ambiente-buttons">
+    <app-ambiente-button nome="Quarto"></app-ambiente-button>
+    <app-ambiente-button nome="Banheiro"></app-ambiente-button>
+    <app-ambiente-button nome="Sala"></app-ambiente-button>
+    <app-ambiente-button nome="Sala de Estar"></app-ambiente-button>
+    <app-ambiente-button nome="Sala de Jantar"></app-ambiente-button>
+    <app-ambiente-button nome="Cozinha"></app-ambiente-button>
+    <app-ambiente-button nome="Varanda"></app-ambiente-button>
+    <app-ambiente-button nome="Quintal"></app-ambiente-button>
+  </div>
+
   <div class="container">
-
-      
-
-
-  <ButtonLink [routerLink]="['/dados-ambientes-tamanho']" text="Salvar e continuar"></ButtonLink>
-</div>
+    <ButtonLink
+      [routerLink]="['/dados-ambientes-tamanho']"
+      text="Salvar e continuar"
+    ></ButtonLink>
+  </div>
+  
 </ion-content>

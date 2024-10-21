@@ -1,17 +1,13 @@
-<ToolbarVoltar 
-[title]="'Tamanhos dos Ambientes'" 
-[defaultHref]="'/dados-ambiente'">
+<ToolbarVoltar
+  [title]="'Tamanhos dos Ambientes'"
+  [defaultHref]="'/dados-ambiente'"
+>
 </ToolbarVoltar>
 
 <ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row>
-      
-
-      
-      <ion-col size="12">
-        <ButtonLink [routerLink]="['/home-com-projetos']" text="Salvar e continuar"></ButtonLink>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <h2 class="header">• Defina o tamanho em m²</h2>
+  <ButtonLink
+    [routerLink]="['/home-com-projetos']"
+    text="Salvar e continuar"
+  ></ButtonLink>
 </ion-content>

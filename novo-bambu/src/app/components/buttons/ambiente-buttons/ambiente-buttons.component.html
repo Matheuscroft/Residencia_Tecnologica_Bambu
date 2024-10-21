@@ -1,0 +1,17 @@
+<div class="ambiente-container">
+  <button 
+    [ngClass]="{'selected': selecionado}" 
+    (click)="selecionar()">
+    {{ nome }}
+  </button>
+
+  <div *ngIf="selecionado" class="input-container">
+    <label for="quantidade-{{ nome }}">Quantidade</label>
+    <input 
+      id="quantidade-{{ nome }}" 
+      type="number" 
+      [(ngModel)]="quantidade" 
+      min="1">
+  </div>
+</div>
+

@@ -8,6 +8,7 @@ import { DadosAmbientePageRoutingModule } from './dados-ambiente-routing.module'
 
 import { DadosAmbientePage } from './dados-ambiente.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { AmbienteButtonsComponent } from 'src/app/components/buttons/ambiente-buttons/ambiente-buttons.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { ComponentsModule } from 'src/app/components/components.module';
     DadosAmbientePageRoutingModule,
     ComponentsModule
   ],
-  declarations: [DadosAmbientePage]
+  declarations: [DadosAmbientePage, AmbienteButtonsComponent]
 })
 export class DadosAmbientePageModule {}
