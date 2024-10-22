@@ -15,9 +15,8 @@ export class AmbienteButtonsComponent {
     this.selecionado = !this.selecionado;
     if (!this.selecionado) {
       this.quantidade = 0;
+      this.quantidadeMudou.emit(this.quantidade); // Emite quantidade zero ao desmarcar
     }
-    // Atualiza a quantidade ao selecionar/desmarcar
-    this.quantidadeMudou.emit(this.quantidade);
   }
 
   // Método para emitir a mudança de quantidade ao alterar o valor

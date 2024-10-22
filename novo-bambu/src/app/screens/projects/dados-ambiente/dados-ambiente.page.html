@@ -6,73 +6,54 @@
 
   <div class="container-ambiente-buttons">
     <!-- Botões Fixos de Ambientes -->
-    <app-ambiente-button 
-    nome="Quarto" 
-    (quantidadeMudou)="atualizarQuantidade('Quarto', $event)">
-  </app-ambiente-button>
-  <app-ambiente-button 
-    nome="Sala" 
-    (quantidadeMudou)="atualizarQuantidade('Sala', $event)">
-  </app-ambiente-button>
-  <app-ambiente-button 
-    nome="Sala de Estar" 
-    (quantidadeMudou)="atualizarQuantidade('Sala de Estar', $event)">
-  </app-ambiente-button>
-  <app-ambiente-button 
-    nome="Sala de Jantar" 
-    (quantidadeMudou)="atualizarQuantidade('Sala de Jantar', $event)">
-  </app-ambiente-button>
-  <app-ambiente-button 
-    nome="Cozinha" 
-    (quantidadeMudou)="atualizarQuantidade('Cozinha', $event)">
-  </app-ambiente-button>
-  <app-ambiente-button 
-    nome="Banheiro" 
-    (quantidadeMudou)="atualizarQuantidade('Banheiro', $event)">
-  </app-ambiente-button>
-  <app-ambiente-button 
-    nome="Lavanderia" 
-    (quantidadeMudou)="atualizarQuantidade('Lavanderia', $event)">
-  </app-ambiente-button>
-  <app-ambiente-button 
-    nome="Varanda" 
-    (quantidadeMudou)="atualizarQuantidade('Varanda', $event)">
-  </app-ambiente-button>
-  <app-ambiente-button 
-    nome="Quintal" 
-    (quantidadeMudou)="atualizarQuantidade('Quintal', $event)">
-  </app-ambiente-button>
-    
+    <div class="container-ambiente-buttons">
+      <app-ambiente-button nome="Quarto" (quantidadeMudou)="atualizarQuantidade('Quarto', $event)">
+      </app-ambiente-button>
+      <app-ambiente-button nome="Sala" (quantidadeMudou)="atualizarQuantidade('Sala', $event)">
+      </app-ambiente-button>
+      <app-ambiente-button nome="Sala de Estar" (quantidadeMudou)="atualizarQuantidade('Sala de Estar', $event)">
+      </app-ambiente-button>
+      <app-ambiente-button nome="Sala de Jantar" (quantidadeMudou)="atualizarQuantidade('Sala de Jantar', $event)">
+      </app-ambiente-button>
+      <app-ambiente-button nome="Cozinha" (quantidadeMudou)="atualizarQuantidade('Cozinha', $event)">
+      </app-ambiente-button>
+      <app-ambiente-button nome="Banheiro" (quantidadeMudou)="atualizarQuantidade('Banheiro', $event)">
+      </app-ambiente-button>
+      <app-ambiente-button nome="Lavanderia" (quantidadeMudou)="atualizarQuantidade('Lavanderia', $event)">
+      </app-ambiente-button>
+      <app-ambiente-button nome="Varanda" (quantidadeMudou)="atualizarQuantidade('Varanda', $event)">
+      </app-ambiente-button>
+      <app-ambiente-button nome="Quintal" (quantidadeMudou)="atualizarQuantidade('Quintal', $event)">
+      </app-ambiente-button>
+      <!-- Continue para os outros ambientes fixos... -->
+    </div>
 
     <!-- Botão "Outro" com Nome Personalizado -->
+    <!-- Botão "Outro" com Nome Personalizado -->
+    <!-- Botão "Outro" com Nome Personalizado -->
     <div class="ambiente-container">
-      <button 
-        [ngClass]="{'selected': isOutroSelecionado}" 
-        (click)="selecionarOutro()">
+      <button [ngClass]="{'selected': isOutroSelecionado}" (click)="selecionarOutro()">
         Outro
       </button>
 
       <div *ngIf="isOutroSelecionado" class="input-container">
         <label for="nome-outro">Nome</label>
-        <input 
-          id="nome-outro" 
-          type="text" 
-          [(ngModel)]="nomeOutro" 
-          placeholder="Nome do ambiente">
-        
+        <input id="nome-outro" type="text" [(ngModel)]="nomeOutro" placeholder="Nome do ambiente"
+          (input)="atualizarOutro()">
+
         <label for="quantidade-outro">Quantidade</label>
-        <input 
-          id="quantidade-outro" 
-          type="number" 
-          [(ngModel)]="quantidadeOutro" 
-          min="1"
-          (change)="atualizarOutro()">
+        <input id="quantidade-outro" type="number" [(ngModel)]="quantidadeOutro" min="1" (change)="atualizarOutro()">
       </div>
     </div>
+
+
+
   </div>
 
   <div class="container">
-    <ButtonLink href="/dados-ambientes-tamanho" text="Salvar e continuar"></ButtonLink>
+    <ButtonLink [routerLink]="['/dados-ambientes-tamanho']" text="Salvar e continuar" (click)="salvarAmbientes()">
+    </ButtonLink>
+
 
   </div>
 </ion-content>

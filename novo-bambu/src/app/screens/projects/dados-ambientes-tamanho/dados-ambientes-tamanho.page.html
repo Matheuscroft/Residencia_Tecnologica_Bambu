@@ -6,8 +6,29 @@
 
 <ion-content [fullscreen]="true">
   <h2 class="header">• Defina o tamanho em m²</h2>
-  <ButtonLink
-    [routerLink]="['/home-com-projetos']"
-    text="Salvar e continuar"
-  ></ButtonLink>
+
+  <!-- Lista de Cômodos Selecionados -->
+  <!-- Debugging: Exiba o JSON completo dos ambientes -->
+<!-- <pre>{{ ambientes | json }}</pre> -->
+
+<!-- Lista de Cômodos Selecionados -->
+<div class="ambientes-lista">
+  <div *ngFor="let ambiente of ambientes; let i = index" class="ambiente-item">
+    <label>{{ getNomeAmbiente(ambiente.nome, i) }}</label>
+    <input 
+      type="number" 
+      [ngModel]="ambiente.tamanho" 
+      (ngModelChange)="atualizarTamanho(ambiente, $event)"
+      placeholder="Digite o tamanho em m²">
+  </div>
+</div>
+
+
+  <div class="container">
+    <ButtonLink
+      [routerLink]="['/home-com-projetos']"
+      text="Salvar e continuar"
+      (click)="salvarTamanhos()"
+    ></ButtonLink>
+  </div>
 </ion-content>
