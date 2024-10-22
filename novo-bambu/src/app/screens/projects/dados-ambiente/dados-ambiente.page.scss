@@ -1,20 +1,46 @@
-.container-ambiente-buttons {
-  margin-left: 20px;
-}
+.ambiente-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 
-:host {
-  ion-content {
-    --background: #eeeeee;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  button {
+    height: 40px;
+    min-width: 120px;
+    border-radius: 25px;
+    color: #3a5340;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 8px;
+    margin-right: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    &.selected {
+      background-color: #28a745; /* Cor verde para botão selecionado */
+      color: white;
+    }
   }
 
-  .header {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 20px 10px 5px 20px;
-    color: #3a5340;
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+    label {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    input {
+      background-color: white;
+      border: 1px solid #D9D9D9;
+      border-radius: 6px;
+      min-width: 170px;
+      padding: 5px;
+      margin-top: 5px;
+      height: 35px;
+    }
   }
 }

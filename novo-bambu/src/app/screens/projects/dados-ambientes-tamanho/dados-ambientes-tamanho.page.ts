@@ -6,10 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./dados-ambientes-tamanho.page.scss'],
 })
 export class DadosAmbientesTamanhoPage {
-  furnitureTypes: string[] = [
-    'Rústica', 'Escandinava', 'Art Deco',  'Boêmio',  'Clássica',
-    'Moderno', 'Contemporânea', 'Industrial','Colonial',
-  ];
+  
 
   selectedTypes: string[] = [];
 

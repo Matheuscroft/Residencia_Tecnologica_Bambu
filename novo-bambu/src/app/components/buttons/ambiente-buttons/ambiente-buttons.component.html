@@ -11,7 +11,7 @@
       id="quantidade-{{ nome }}" 
       type="number" 
       [(ngModel)]="quantidade" 
-      min="1">
+      min="1"
+      (change)="onQuantidadeChange()">
   </div>
 </div>
-
