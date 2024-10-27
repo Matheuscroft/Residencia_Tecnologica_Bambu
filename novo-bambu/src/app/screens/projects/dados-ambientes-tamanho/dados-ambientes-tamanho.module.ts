@@ -6,6 +6,8 @@ import { DadosAmbientesTamanhoPageRoutingModule } from './dados-ambientes-tamanh
 import { DadosAmbientesTamanhoPage } from './dados-ambientes-tamanho.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
+import { AmbienteTamanhoComponent } from 'src/app/components/inputs/ambiente-tamanho/ambiente-tamanho.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -14,7 +16,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
     DadosAmbientesTamanhoPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [DadosAmbientesTamanhoPage]
+  declarations: [DadosAmbientesTamanhoPage, AmbienteTamanhoComponent]
 })
 export class DadosAmbientesTamanhoPageModule {}
 

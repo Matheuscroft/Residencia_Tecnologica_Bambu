@@ -1,23 +1,20 @@
 <ToolbarVoltar
   [title]="'Tamanhos dos Ambientes'"
   [defaultHref]="'/dados-ambiente'"
->
-</ToolbarVoltar>
+></ToolbarVoltar>
 
 <ion-content [fullscreen]="true">
   <h2 class="header">• Defina o tamanho em m²</h2>
 
-<div class="ambientes-lista">
-  <div *ngFor="let ambiente of ambientes; let i = index" class="ambiente-item">
-    <label>{{ getNomeAmbiente(ambiente.nome, i) }}</label>
-    <input 
-      type="number" 
-      [ngModel]="ambiente.tamanho" 
-      (ngModelChange)="atualizarTamanho(ambiente, $event)"
-      placeholder="Digite o tamanho em m²">
+  <div class="ambientes-lista">
+    <app-ambiente-tamanho
+      *ngFor="let ambiente of ambientes; let i = index"
+      [nome]="ambiente.nome"
+      [tamanho]="ambiente.tamanho"
+      (tamanhoMudou)="atualizarTamanho(i, $event)"
+      (remover)="removerAmbiente(i)"
+    ></app-ambiente-tamanho>
   </div>
-</div>
-
 </ion-content>
 
 <ion-footer>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'ButtonLink',
@@ -7,14 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./button-link.component.scss'],
 })
 export class ButtonLinkComponent {
-  @Input() href!: string;
-  @Input() text!: string;
+  @Input() href: string = '';  // Defina um valor padrão para evitar problemas de navegação
+  @Input() text: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private navCtrl: NavController) {}
 
   navigateTo() {
-    if (this.href && this.href.toString()) {
-      this.router.navigate([this.href]);
+    if (this.href) {
+      this.navCtrl.navigateForward(this.href);
     } else {
       console.error('Navegação falhou: O valor de "href" está indefinido ou é inválido.');
     }

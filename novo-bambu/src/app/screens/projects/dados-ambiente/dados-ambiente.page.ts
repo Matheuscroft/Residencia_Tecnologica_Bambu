@@ -33,17 +33,26 @@ export class DadosAmbientePage {
   // Salvar os dados ao clicar em "Salvar e continuar"
   salvarAmbientes() {
     const ambientesValidados = this.ambientes.filter(a => a.nome && a.quantidade > 0);
-
+    
     if (ambientesValidados.length > 0) {
       localStorage.setItem('ambientesSelecionados', JSON.stringify(ambientesValidados));
-      console.log('Dados salvos no localStorage:', ambientesValidados); // Debug
+      console.log('Dados salvos no localStorage:', ambientesValidados);
     } else {
       console.error('Nenhum ambiente válido para salvar.');
     }
   }
+  
+
+  atualizarLocalStorage() {
+    localStorage.setItem('ambientesSelecionados', JSON.stringify(this.ambientes));
+  }
 
   removerAmbiente(index: number) {
+    // Remove o ambiente do array
     this.ambientes.splice(index, 1);
+  
+    // Atualiza o localStorage com o novo array
+    this.atualizarLocalStorage();
   }
   
 }

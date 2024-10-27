@@ -1,0 +1,13 @@
+
+<div class="ambiente-tamanho-container">
+  <span class="nome">{{ nome }}</span>
+  <input
+    type="text"
+    [ngModel]="tamanho"
+    (ngModelChange)="onTamanhoChange($event)"
+    placeholder="Área em m²"
+  />
+</div>
+
+
+
