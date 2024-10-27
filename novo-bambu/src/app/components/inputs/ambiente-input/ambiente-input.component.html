@@ -1,0 +1,26 @@
+<div class="input-container">
+  <!-- Ícone "close-outline" para remover o componente -->
+  <ion-icon name="close-outline" class="remove-icon" (click)="removerComponente()"></ion-icon>
+
+  <div class="input-wrapper">
+    <label for="nome">Nome</label>
+    <input
+      id="nome"
+      type="text"
+      [(ngModel)]="nome"
+      (input)="onNomeChange()"
+      placeholder="Ambiente"
+    />
+  </div>
+
+  <div class="input-wrapper">
+    <label for="quantidade">Quantidade</label>
+    <input
+      id="quantidade"
+      type="number"
+      [(ngModel)]="quantidade"
+      (input)="onQuantidadeChange()"
+      min="1"
+    />
+  </div>
+</div>

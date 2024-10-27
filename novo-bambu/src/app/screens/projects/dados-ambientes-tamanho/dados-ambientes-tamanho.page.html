@@ -7,11 +7,6 @@
 <ion-content [fullscreen]="true">
   <h2 class="header">• Defina o tamanho em m²</h2>
 
-  <!-- Lista de Cômodos Selecionados -->
-  <!-- Debugging: Exiba o JSON completo dos ambientes -->
-<!-- <pre>{{ ambientes | json }}</pre> -->
-
-<!-- Lista de Cômodos Selecionados -->
 <div class="ambientes-lista">
   <div *ngFor="let ambiente of ambientes; let i = index" class="ambiente-item">
     <label>{{ getNomeAmbiente(ambiente.nome, i) }}</label>
@@ -23,12 +18,14 @@
   </div>
 </div>
 
+</ion-content>
 
-  <div class="container">
+<ion-footer>
+  <div class="container-buttonLink">
     <ButtonLink
       [routerLink]="['/home-com-projetos']"
       text="Salvar e continuar"
       (click)="salvarTamanhos()"
     ></ButtonLink>
   </div>
-</ion-content>
+</ion-footer>

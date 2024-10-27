@@ -5,6 +5,10 @@
   margin: 20px;
 }
 
+.header {
+  margin-left: 20px;
+}
+
 
 .ambiente-item {
   display: flex;
@@ -25,5 +29,18 @@
     padding: 5px;
     margin-left: 10px;
     text-align: right;
+  }
+}
+
+ion-footer {
+  margin: 0;
+  padding: 0px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+
+  .container-buttonLink {
+    padding-top: 10px;
+    padding-bottom: 20px;
   }
 }

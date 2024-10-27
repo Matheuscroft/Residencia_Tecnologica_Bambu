@@ -1,47 +1,52 @@
-<ToolbarVoltar 
-[title]="'Dados do Cliente'" 
-[defaultHref]="'/projetos-home'">
+<ToolbarVoltar [title]="'Dados do Cliente'" [defaultHref]="'/projetos-home'">
 </ToolbarVoltar>
 
 <ion-content [fullscreen]="true">
   <div class="container">
-
-    <InputLink 
-    placeholder="Nome do cliente" 
-    [(ngModel)]="clienteData.nome" 
-    [text]="'Nome'" 
-    keyboardType="text"
-      autoCapitalize="none">
-    </InputLink>
-    
-
-    <InputLink 
-    placeholder="Endereço do cliente" 
-    [(ngModel)]="clienteData.endereco" 
-    [text]="'Endereço'" 
-    keyboardType="text"
-      autoCapitalize="none">
-    </InputLink>
-
-    <InputLink 
-    placeholder="Telefone do cliente" 
-    [(ngModel)]="clienteData.telefone" 
-    [text]="'Telefone'" 
-    keyboardType="tel"
+    <InputLink
+      placeholder="Nome do cliente"
+      [(ngModel)]="clienteData.nome"
+      [text]="'Nome'"
+      keyboardType="text"
       autoCapitalize="none"
-      [maxlength]="11">
+    >
     </InputLink>
 
-
-    <InputLink 
-    placeholder="E-mail do cliente" 
-    [(ngModel)]="clienteData.email" 
-    [text]="'E-mail'" 
-    keyboardType="email"
-      autoCapitalize="none">
+    <InputLink
+      placeholder="Endereço do cliente"
+      [(ngModel)]="clienteData.endereco"
+      [text]="'Endereço'"
+      keyboardType="text"
+      autoCapitalize="none"
+    >
     </InputLink>
 
-    <ButtonLink [routerLink]="['/dados-projeto']" text="Salvar e continuar"></ButtonLink>
+    <InputLink
+      placeholder="Telefone do cliente"
+      [(ngModel)]="clienteData.telefone"
+      [text]="'Telefone'"
+      keyboardType="tel"
+      autoCapitalize="none"
+      [maxlength]="11"
+    >
+    </InputLink>
 
+    <InputLink
+      placeholder="E-mail do cliente"
+      [(ngModel)]="clienteData.email"
+      [text]="'E-mail'"
+      keyboardType="email"
+      autoCapitalize="none"
+    >
+    </InputLink>
   </div>
 </ion-content>
+
+<ion-footer>
+  <div class="container-buttonLink">
+    <ButtonLink
+      [routerLink]="['/dados-projeto']"
+      text="Salvar e continuar"
+    ></ButtonLink>
+  </div>
+</ion-footer>

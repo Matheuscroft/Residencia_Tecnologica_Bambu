@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AmbienteButtonComponent } from './ambiente-buttons.component';
+import { AmbienteInputComponent } from './ambiente-input.component';
 
-describe('AmbienteButtonComponent', () => {
-  let component: AmbienteButtonComponent;
-  let fixture: ComponentFixture<AmbienteButtonComponent>;
+describe('AmbienteInputComponent', () => {
+  let component: AmbienteInputComponent;
+  let fixture: ComponentFixture<AmbienteInputComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AmbienteButtonComponent ],
+      declarations: [ AmbienteInputComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AmbienteButtonComponent);
+    fixture = TestBed.createComponent(AmbienteInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
