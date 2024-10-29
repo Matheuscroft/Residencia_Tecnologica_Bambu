@@ -6,40 +6,34 @@
   height: 100%;
 }
 
-ion-item {
-  margin-top: 12px;
-  --background: #728056;
-  border-radius: 10px;
+.select-container {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
-ion-input {
-  --color: white;
+label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #728056;
+}
 
-
-  --background: transparent;
-  --padding-start: 0px;
-  font-size: 16px;
+select {
   height: 40px;
-}
-
-ion-button {
-  margin-top: 20px;
-}
-
-ion-label {
-  --color: white;
-}
-
-ion-footer {
-  margin: 0;
-  padding: 0px;
-  background: transparent;
-  box-shadow: none;
   border: none;
-
-  .container-buttonLink {
-    padding-top: 10px;
-    padding-bottom: 20px;
-  }
+  border-radius: 10px;
+  background-color: #728056;
+  color: white;
+  font-size: 16px;
+  padding-left: 8px;
+  appearance: none; 
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="10"><path d="M7 10L0 0h14z" fill="%23fff"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 10px 10px;
 }
 
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #576345;
+}

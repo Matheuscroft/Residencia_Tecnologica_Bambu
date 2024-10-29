@@ -26,6 +26,7 @@
   flex-direction: column;
   height: 100%;
   padding: 20px;
+  //--background: white;
 
   .button {
     display: flex;
@@ -47,8 +48,8 @@
     --padding-bottom: 10px;
 
     ion-icon {
-      font-size: 30px; /* Ajusta o tamanho do ícone */
-      margin-right: 8px; /* Espaço entre o ícone e o texto */
+      font-size: 30px; 
+      margin-right: 8px;
     }
   }
 

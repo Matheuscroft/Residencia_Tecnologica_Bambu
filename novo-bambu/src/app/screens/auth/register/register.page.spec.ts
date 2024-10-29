@@ -1,17 +1,50 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RegisterPage } from './register.page';
+import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
-describe('RegisterPage', () => {
-  let component: RegisterPage;
-  let fixture: ComponentFixture<RegisterPage>;
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
+})
+export class RegisterPage {
+  
+  fullName: string = '';
+  phone: string = '';
+  company: string = '';
+  cpf: string = '';
+  cauregistro: string = '';
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
+  notificationPreferences: string = '';
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  constructor(private navCtrl: NavController) {}
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  handleRegister() {
+   
+    if (!this.fullName || !this.phone || !this.cpf || !this.cauregistro || !this.email || !this.password || !this.confirmPassword) {
+      alert('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+
+    
+    if (this.password !== this.confirmPassword) {
+      alert('As senhas não coincidem.');
+      return;
+    }
+
+    
+    const registerData = {
+      fullName: this.fullName,
+      phone: this.phone,
+      company: this.company,
+      cpf: this.cpf,
+      cauregistro: this.cauregistro,
+      email: this.email,
+      password: this.password,
+      notificationPreferences: this.notificationPreferences
+    };
+
+    console.log('Dados de registro do usuário: ', registerData);
+  }
+}

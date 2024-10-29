@@ -6,7 +6,6 @@
 <ion-content class="ambiente-container">
   <h2 class="header">• Adicione Ambientes</h2>
 
-  <!-- Botão de adicionar ambiente -->
   <div class="button">
     <ion-button class="add-button" (click)="adicionarAmbiente()">
       <ion-icon name="add-outline" slot="start"></ion-icon>
@@ -14,7 +13,6 @@
     </ion-button>
   </div>
 
-  <!-- Lista de ambientes adicionados, abaixo do botão -->
   <div class="container-ambientes">
     <div
       *ngFor="let ambiente of ambientes; let i = index"

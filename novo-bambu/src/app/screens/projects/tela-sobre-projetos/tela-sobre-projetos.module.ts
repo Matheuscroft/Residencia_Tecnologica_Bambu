@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { TelaSobreProjetosPageRoutingModule } from './tela-sobre-projetos-routing.module';
 
 import { TelaSobreProjetosPage } from './tela-sobre-projetos.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TelaSobreProjetosPageRoutingModule
+    TelaSobreProjetosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [TelaSobreProjetosPage]
 })

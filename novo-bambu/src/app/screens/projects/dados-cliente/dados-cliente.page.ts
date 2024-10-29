@@ -15,15 +15,33 @@ export class DadosClientePage {
       nome: '',
       endereco: '',
       telefone: '',
-      email: ''
+      email: '',
+      tipoCliente: 'pessoaFisica' 
     };
   }
 
+  /**
+   * Atualiza os dados do cliente no contexto.
+    @param key 
+    @param value .
+   */
   setClienteData(key: string, value: any) {
     this.clienteData[key] = value;
     this.dataContext.setClienteData(this.clienteData);
   }
 
+  /**
+   * Manipula a mudança de tipo de cliente a partir do <select>.
+   * @param event O evento de mudança do <select>.
+   */
+  onTipoClienteChange(event: any) {
+    const tipoClienteSelecionado = event.target.value;
+    this.setClienteData('tipoCliente', tipoClienteSelecionado);
+  }
+
+  /**
+   * Navega para a próxima página ao salvar os dados.
+   */
   saveAndContinue() {
     this.navCtrl.navigateForward('/dados-projeto');
   }
