@@ -12,4 +12,10 @@ export class TelaSobreProjetosPage implements OnInit {
   ngOnInit() {
   }
 
+  selectedSegment: string = 'etapas';
+
+  onSegmentChange(segment: string) {
+    this.selectedSegment = segment;
+  }
+
 }

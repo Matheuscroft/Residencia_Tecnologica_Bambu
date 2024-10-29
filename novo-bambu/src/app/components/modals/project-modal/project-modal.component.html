@@ -1,0 +1,25 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-title>Sobre o Projeto</ion-title>
+  </ion-toolbar>
+  
+  <div *ngIf="selectedSegment === 'etapas'">
+    <h2>• Situação atual</h2>
+    <p>Etapa anterior: Reunião de briefing</p>
+    <p>Etapa atual: Definição de RT</p>
+    <p>Próxima etapa: Reunião com M.O</p>
+  </div>
+
+  <div *ngIf="selectedSegment === 'detalhes'">
+    <h2>• Detalhes do Projeto</h2>
+    <p>Endereço: Av. Estefânia Carneiro. 171 PE - Carpina - Centro</p>
+    <p>Tamanho: 90m²</p>
+    <p>Tipo de obra: Residencial</p>
+    <p>Orçamento atual: R$9.812,60</p>
+  </div>
+
+  <div *ngIf="selectedSegment === 'ambientes'">
+    <h2>• Ambientes</h2>
+    <p>Descrição dos ambientes do projeto...</p>
+  </div>
+</ion-content>
