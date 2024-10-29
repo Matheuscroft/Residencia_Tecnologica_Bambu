@@ -1,56 +1,77 @@
 <ToolbarVoltar 
-[title]="'Dados do Projeto'" 
-[defaultHref]="'/dados-cliente'">
+  [title]="'Dados do Projeto'" 
+  [defaultHref]="'/dados-cliente'">
 </ToolbarVoltar>
 
 <ion-content class="dados-projeto-container">
   <div class="container">
-  <InputLink 
-    placeholder="Título do projeto" 
-    [(ngModel)]="projetoData.titulo" 
-    [text]="'Nome do Projeto'" 
-    keyboardType="text"
+
+    <InputLink 
+      placeholder="Título do projeto" 
+      [(ngModel)]="projetoData.titulo" 
+      [text]="'Nome do Projeto'" 
+      keyboardType="text"
       autoCapitalize="none">
     </InputLink>
 
-  <InputLink 
-    placeholder="Endereço do projeto" 
-    [(ngModel)]="projetoData.enderecoProjeto" 
-    [text]="'Endereço do Projeto'" 
-    keyboardType="text"
+    <InputLink 
+      placeholder="Endereço do projeto" 
+      [(ngModel)]="projetoData.enderecoProjeto" 
+      [text]="'Endereço do Projeto'" 
+      keyboardType="text"
       autoCapitalize="none">
     </InputLink>
 
-  <InputLink 
-    placeholder="Resid. Comerc. Indust." 
-    [(ngModel)]="projetoData.tipoConstrucao" 
-    [text]="'Tipo de Construção'" 
-    keyboardType="text"
-      autoCapitalize="none">
-    </InputLink>
+    <br>
+    
+    <ion-item>
+      <ion-label position="stacked">Tipo de Obra*</ion-label><br>
+      <ion-select [(ngModel)]="projetoData.tipoObra" (ionChange)="onTipoObraChange($event)">
+        <ion-select-option value="residencial">Residencial</ion-select-option>
+        <ion-select-option value="corporativo">Corporativo</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <InputLink 
-    placeholder="Em m²" 
-    [(ngModel)]="projetoData.tamanhoConstrucao" 
-    [text]="'Tamanho da Construção (m²)'" 
-    keyboardType="text"
-      autoCapitalize="none">
-    </InputLink>
 
-  <InputLink 
+    <ion-item *ngIf="projetoData.tipoObra === 'residencial'">
+      <ion-label position="stacked">Tipo de Obra Residencial*</ion-label><br>
+      <ion-select [(ngModel)]="projetoData.tipoObraResidencial">
+        <ion-select-option value="casa">Casa de praia</ion-select-option>
+        <ion-select-option value="apartamento">Apartamento</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="projetoData.tipoObra === 'corporativo'">
+      <ion-label position="stacked">Tipo de Obra Corporativo*</ion-label><br>
+      <ion-select [(ngModel)]="projetoData.tipoObraCorporativo">
+        <ion-select-option value="escritorio">Escritório</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="stacked">Detalhes da obra</ion-label>
+      <ion-textarea placeholder="Observações"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Data de término*</ion-label><br>
+      <ion-datetime display-format="MMM DD, YYYY" [(ngModel)]="projetoData.dataTermino"></ion-datetime>
+    </ion-item>
+    <InputLink 
     placeholder="Orçamento inicial" 
     [(ngModel)]="projetoData.orcamento" 
     [text]="'Orçamento Inicial'" 
     keyboardType="text"
-      autoCapitalize="none">
-    </InputLink>
+    autoCapitalize="none"
+    (ionBlur)="formatCurrency()" 
+    (ionInput)="onInputChange($event)">
+  </InputLink>
+
+    <br><br><br><br>
+    <ButtonLink [routerLink]="['/dados-ambiente']" [text]="'Salvar e continuar'"></ButtonLink>
 
     
+  
   </div>
 </ion-content>
-
-<ion-footer>
-  <div class="container-buttonLink">
-    <ButtonLink [routerLink]="['/dados-ambiente']" text="Salvar e continuar"></ButtonLink>
-  </div>
-</ion-footer>
