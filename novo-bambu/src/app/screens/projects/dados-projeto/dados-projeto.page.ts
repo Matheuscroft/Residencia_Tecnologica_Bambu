@@ -10,30 +10,20 @@ export class DadosProjetoPage {
   projetoData = {
     titulo: '',
     enderecoProjeto: '',
-    tipoObra: '',
     detalhes: '',
-    tipoObraResidencial: '',
-    tipoObraCorporativo: '', 
     orcamento: '',
-    dataTermino: ''
+    startDate: '',
+    endDate: '',
+    percentStage1: '',
+    percentStage2: '',
+    percentStage3: '',
+    percentStage4: '',
+    percentStage5: ''
   };
 
   constructor(private navCtrl: NavController) {}
 
-  // Função que lida com a mudança no campo "Tipo de Obra"
-  onTipoObraChange(event: any) {
-    const selectedTipoObra = event.detail.value;
-    this.projetoData.tipoObra = selectedTipoObra;
-
-    // Limpa os campos de tipo de obra específica quando o tipo de obra principal muda
-    if (selectedTipoObra === 'residencial') {
-      this.projetoData.tipoObraCorporativo = '';
-    } else if (selectedTipoObra === 'corporativo') {
-      this.projetoData.tipoObraResidencial = '';
-    }
-  }
-
-  // Método chamado quando o valor do input muda
+  // Função chamada quando o valor do input muda
   onInputChange(event: any) {
     const inputValue = event.target.value;
 
@@ -76,7 +66,7 @@ export class DadosProjetoPage {
 
   // Função que salva os dados e navega para a próxima página
   saveAndContinue() {
-    console.log('Projeto Salvo:', this.projetoData);
+    console.log('Dados do Projeto Salvos:', this.projetoData);
     this.navCtrl.navigateForward('/dados-ambiente');
   }
 }
