@@ -13,12 +13,13 @@ import { ProjectCardComponent } from './cards/project-card/project-card.componen
 import { ProjectStatusFormComponent } from './forms/project-status-form/project-status-form.component';
 import { StatusSelectComponent } from './selects/status-select/status-select.component';
 import { DadosSelectComponent } from './selects/dados-select/dados-select.component';
+import { ProjectAccordionComponent } from './accordions/project-accordion/project-accordion.component';
 
 @NgModule({
   declarations: [WhiteButtonComponent, InputLinkComponent, ButtonPlusComponent, ButtonLinkComponent, 
-    ButtonInfoComponent, ToolbarVoltarComponent, ProjectSegmentComponent, ProjectModalComponent, ProjectCardComponent, ProjectStatusFormComponent, StatusSelectComponent, DadosSelectComponent],
+    ButtonInfoComponent, ToolbarVoltarComponent, ProjectSegmentComponent, ProjectModalComponent, ProjectCardComponent, ProjectStatusFormComponent, StatusSelectComponent, DadosSelectComponent, ProjectAccordionComponent],
   imports: [CommonModule, IonicModule],
   exports: [WhiteButtonComponent, InputLinkComponent, ButtonPlusComponent, ButtonLinkComponent, ButtonInfoComponent, 
-    ToolbarVoltarComponent, ProjectSegmentComponent, ProjectModalComponent, ProjectCardComponent, ProjectStatusFormComponent, StatusSelectComponent, DadosSelectComponent]  
+    ToolbarVoltarComponent, ProjectSegmentComponent, ProjectModalComponent, ProjectCardComponent, ProjectStatusFormComponent, StatusSelectComponent, DadosSelectComponent, ProjectAccordionComponent]  
 })
 export class ComponentsModule {}
