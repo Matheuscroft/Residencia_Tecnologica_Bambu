@@ -1,0 +1,12 @@
+<div>
+  <p>Data de início: </p>
+  <p>Data de fim: </p>
+
+  <StatusSelect [label]="'Status'" [options]="[
+    { label: 'Iniciado', value: 'iniciado' },
+    { label: 'Em andamento', value: 'emAndamento' },
+    { label: 'Finalizado', value: 'finalizado' }
+  ]" [selectedValue]="clienteData.statusProjeto" (valueChange)="onTipoClienteChange($event)">
+  </StatusSelect>
+
+</div>

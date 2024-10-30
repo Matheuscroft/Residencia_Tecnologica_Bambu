@@ -17,7 +17,7 @@ import { Component, Input } from '@angular/core';
 //import { CORES } from '../../shared/constants/cores';
 
 @Component({
-  selector: 'app-project-card',
+  selector: 'ProjectCard',
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.scss'],
 })

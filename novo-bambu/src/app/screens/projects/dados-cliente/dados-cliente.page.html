@@ -1,54 +1,46 @@
-<ToolbarVoltar 
-  [title]="'Dados do Cliente'" 
-  [defaultHref]="'/projetos-home'">
+<ToolbarVoltar [title]="'Dados do Cliente'" [defaultHref]="'/projetos-home'">
 </ToolbarVoltar>
 
 <ion-content [fullscreen]="true">
   <div class="container">
 
-    <InputLink 
-      placeholder="Nome do cliente" 
-      [(ngModel)]="clienteData.nome" 
-      [text]="'Nome'" 
-      keyboardType="text"
+    <InputLink placeholder="Nome do cliente" [(ngModel)]="clienteData.nome" [text]="'Nome'" keyboardType="text"
       autoCapitalize="none">
     </InputLink>
 
-    <InputLink 
-      placeholder="Endereço do cliente" 
-      [(ngModel)]="clienteData.endereco" 
-      [text]="'Endereço'" 
-      keyboardType="text"
-      autoCapitalize="none">
+    <InputLink placeholder="Endereço do cliente" [(ngModel)]="clienteData.endereco" [text]="'Endereço'"
+      keyboardType="text" autoCapitalize="none">
     </InputLink>
 
-    <InputLink 
-      placeholder="Telefone do cliente" 
-      [(ngModel)]="clienteData.telefone" 
-      [text]="'Telefone'" 
-      keyboardType="tel"
-      autoCapitalize="none"
-      [maxlength]="11">
+    <InputLink placeholder="Telefone do cliente" [(ngModel)]="clienteData.telefone" [text]="'Telefone'"
+      keyboardType="tel" autoCapitalize="none" [maxlength]="11">
       [maxlength]="11">
     </InputLink>
 
 
-    <InputLink 
-      placeholder="E-mail do cliente" 
-      [(ngModel)]="clienteData.email" 
-      [text]="'E-mail'" 
-      keyboardType="email"
+    <InputLink placeholder="E-mail do cliente" [(ngModel)]="clienteData.email" [text]="'E-mail'" keyboardType="email"
       autoCapitalize="none">
     </InputLink>
 
+    <!-- 
     
-    <div class="select-container">
+<div class="select-container">
       <label for="tipo-cliente">Classificação do cliente *</label>
       <select id="tipo-cliente" [(ngModel)]="clienteData.tipoCliente" (change)="onTipoClienteChange($event)">
         <option value="pessoaFisica">Pessoa Física</option>
         <option value="pessoaJuridica">Pessoa Jurídica</option>
       </select>
     </div>
+
+-->
+
+
+    <DadosSelect [label]="'Classificação do cliente *'" [options]="[
+    { label: 'Pessoa Física', value: 'fisica' },
+    { label: 'Pessoa Jurídica', value: 'juridica' }
+  ]">
+    </DadosSelect>
+
 
     <ButtonLink [routerLink]="['/dados-projeto']" text="Salvar e continuar"></ButtonLink>
 

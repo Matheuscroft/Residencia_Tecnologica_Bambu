@@ -1,0 +1,8 @@
+<ion-item>
+  <ion-select [value]="selectedValue" (ionChange)="onValueChange($event)" justify="start" label="{{ label }}"
+    placeholder="Iniciado">
+    <ion-select-option *ngFor="let option of options" [value]="option.value">
+      {{ option.label }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>
