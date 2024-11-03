@@ -14,7 +14,9 @@
       keyboardType="text"
       autoCapitalize="none">
     </InputLink>
-<br>
+
+    <br>
+
     <InputLink 
       placeholder="Endereço do projeto" 
       [(ngModel)]="projetoData.enderecoProjeto" 
@@ -23,26 +25,44 @@
       autoCapitalize="none">
     </InputLink>
 
-   <br>
-   <ion-item>
-    <ion-label position="stacked">Detalhes da obra</ion-label>
     <br>
 
-    <ion-textarea 
-      [(ngModel)]="projetoData.detalhes" 
-      placeholder="Observações"
-      auto-grow="true"
-      style="--background: #94a78e; --color: white; --padding-start: 15px; --border-radius: 30px;">
-    </ion-textarea>
-  </ion-item>
-<br>
+    <!-- Campo Tipo de Obra -->
+    <ion-select 
+    [(ngModel)]="projetoData.tipoObra" 
+    label="Tipo de Obra*" 
+    label-placement="floating" 
+    fill="solid" 
+    (ionChange)="onValueChange($event)">
+    
+    <ion-select-option *ngFor="let option of obraOptions" [value]="option.value">
+      {{ option.label }}
+    </ion-select-option>
+  </ion-select>
+  
+    <br>
+
+    <ion-item>
+      <ion-label position="stacked">Detalhes da obra</ion-label>
+      <br>
+      <ion-textarea 
+        [(ngModel)]="projetoData.detalhes" 
+        placeholder="Observações"
+        auto-grow="true"
+        style="--background: #94a78e; --color: white; --padding-start: 15px; --border-radius: 30px;">
+      </ion-textarea>
+    </ion-item>
+
+    <br>
+
     <ion-item>
       <ion-label position="stacked">Data de início*</ion-label>
       <br>
       <ion-datetime display-format="MMM DD, YYYY" [(ngModel)]="projetoData.startDate"></ion-datetime>
     </ion-item>
 
-<br>
+    <br>
+
     <ion-item>
       <ion-label position="stacked">Data de término*</ion-label>
       <br>
@@ -51,9 +71,9 @@
 
     <!-- Campo Orçamento Inicial -->
     <InputLink 
-      placeholder="Orçamento inicial" 
+      placeholder="Valor Total" 
       [(ngModel)]="projetoData.orcamento" 
-      [text]="'Orçamento Inicial'" 
+      [text]="'Valor Projeto'" 
       keyboardType="text"
       autoCapitalize="none"
       (ionBlur)="formatCurrency()" 
@@ -62,9 +82,7 @@
 
     <br><br><br><br>
 
-    
-   
- <ion-label class="section-label">Percentuais do valor para etapas</ion-label>
+    <ion-label class="section-label">Percentuais do valor para etapas</ion-label>
 
     <ion-item>
       <ion-label position="stacked">Etapa 1 - Estudo Preliminar</ion-label>
@@ -76,7 +94,6 @@
       </ion-input>
     </ion-item>
 
-
     <ion-item>
       <ion-label position="stacked">Etapa 2 - Anteprojeto</ion-label><br>
       <ion-input 
@@ -86,7 +103,8 @@
       </ion-input>
     </ion-item>
 
- <br>
+    <br>
+
     <ion-item>
       <ion-label position="stacked">Etapa 3 - Projeto Legal</ion-label><br>
       <ion-input 
@@ -116,5 +134,7 @@
       </ion-input>
     </ion-item>
   </div>
-</ion-content>  
+</ion-content>
+
 <ButtonLink [routerLink]="['/dados-ambiente']" [text]="'Salvar e continuar'" (click)="saveAndContinue()"></ButtonLink>
+
