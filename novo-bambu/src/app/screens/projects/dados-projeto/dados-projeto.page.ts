@@ -7,9 +7,11 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./dados-projeto.page.scss'],
 })
 export class DadosProjetoPage {
+
   projetoData = {
     titulo: '',
     enderecoProjeto: '',
+    tipoObra: '',
     detalhes: '',
     orcamento: '',
     startDate: '',
@@ -21,39 +23,47 @@ export class DadosProjetoPage {
     percentStage5: ''
   };
 
+  obraOptions = [
+    { value: 'Residencial', label: 'Residencial' },
+    { value: 'Corporativo', label: 'Corporativo' }
+  ];
+
+    onValueChange(event: any) {
+        // Lógica para lidar com a mudança de valor
+    }
+
+
   constructor(private navCtrl: NavController) {}
 
-  // Função chamada quando o valor do input muda
+  
   onInputChange(event: any) {
     const inputValue = event.target.value;
 
-    // Se o valor for vazio, não faz nada
-    if (inputValue === '') {
+    if (!inputValue) {
       this.projetoData.orcamento = '';
       return;
     }
 
-    // Remove caracteres não numéricos e armazena o valor
+    
     const numericValue = inputValue.replace(/\D/g, '');
-    this.projetoData.orcamento = numericValue; // Armazena apenas os números
+    this.projetoData.orcamento = numericValue;
   }
 
-  // Função que formata o orçamento ao sair do campo (blur)
   formatCurrency() {
     if (!this.projetoData.orcamento) {
       this.projetoData.orcamento = '';
       return;
     }
 
-    // Converte o valor para o formato R$
+   
     this.projetoData.orcamento = this.formatToCurrency(this.projetoData.orcamento);
   }
 
-  // Método para formatar o número como moeda
+ 
   private formatToCurrency(value: string): string {
     if (!value) return '';
 
-    // Converte o valor para inteiro antes da formatação
+
     const numberValue = parseInt(value, 10);
     
     const formattedValue = numberValue.toLocaleString('pt-BR', {
@@ -64,9 +74,9 @@ export class DadosProjetoPage {
     return formattedValue;
   }
 
-  // Função que salva os dados e navega para a próxima página
   saveAndContinue() {
     console.log('Dados do Projeto Salvos:', this.projetoData);
     this.navCtrl.navigateForward('/dados-ambiente');
   }
 }
+
