@@ -1,48 +1,46 @@
-/* Estilos gerais para ion-item */
+
 ion-item {
-  --background: #d1e3d3;
+  --background: #ffffff;
   --border-radius: 20px;
   margin-bottom: 15px;
 }
 
-/* Label da seção */
 .section-label {
   font-weight: bold;
   margin-top: 20px;
-  color: #666;
+  color: #5a5a5a;
 }
 
-/* Estilos para ion-label */
+
 ion-label {
-  color: #666;
+  color: #728056;
   font-weight: bold;
 }
 
-/* Estilos para campos de entrada */
 ion-input,
 ion-textarea,
 app-dados-select,
 ion-datetime {
-  --background: #94a78e;
+  --background: #728056;
   --border-radius: 30px;
   --padding-start: 15px;
   color: white;
 }
 
-/* Estilos para a barra de ferramentas */
+
 ion-toolbar {
-  --background: #566e4c;
+  --background: #f0f6ed;
 }
 
-/* Estilos para botões */
 ion-button {
   margin-top: 20px;
   --border-radius: 20px;
-  --background: #566e4c;
+  --background: #1a4209;
 }
 ion-textarea {
-  --padding-top: 50px; /* Adiciona padding no topo */
-  --padding-bottom: 50px; /* Adiciona padding na parte inferior */
-  --color: white; /* Cor do texto para contraste */
-  font-size: 16px; /* Ajuste do tamanho da fonte */
+  --padding-top: 50px; 
+  --padding-bottom: 50px;
+  --color: white; 
+  font-size: 16px;
 }
+
