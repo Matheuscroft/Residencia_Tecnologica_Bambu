@@ -1,0 +1,15 @@
+:host {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff4d4d; // Cor de fundo
+    color: #fff; // Cor do texto
+    border-radius: 4px; // Defina o raio da borda se necessário
+    padding: 0.5rem; // Ajuste o padding conforme o design
+    cursor: pointer;
+  }
+  
+  :host:hover {
+    background-color: #ff1a1a; // Efeito de hover
+  }
+  

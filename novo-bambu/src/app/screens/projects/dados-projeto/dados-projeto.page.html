@@ -1,83 +1,65 @@
-<ToolbarVoltar 
-  [title]="'Dados do Projeto'" 
-  [defaultHref]="'/dados-cliente'">
+<ToolbarVoltar [title]="'Dados do Projeto'" [defaultHref]="'/dados-cliente'">
 </ToolbarVoltar>
 
 <ion-content class="dados-projeto-container">
   <div class="container">
 
-    <!-- Campo Nome do Projeto -->
-    <InputLink 
-      placeholder="Título do projeto" 
-      [(ngModel)]="projetoData.titulo" 
-      [text]="'Nome do Projeto'" 
-      keyboardType="text"
-      autoCapitalize="none">
+    <InputLink placeholder="Título do projeto" [(ngModel)]="projetoData.titulo" [text]="'Nome do Projeto'"
+      keyboardType="text" autoCapitalize="none">
     </InputLink>
 
     <br>
 
-    <InputLink 
-      placeholder="Endereço do projeto" 
-      [(ngModel)]="projetoData.enderecoProjeto" 
-      [text]="'Endereço do Projeto'" 
-      keyboardType="text"
-      autoCapitalize="none">
+    <InputLink placeholder="Endereço do projeto" [(ngModel)]="projetoData.enderecoProjeto"
+      [text]="'Endereço do Projeto'" keyboardType="text" autoCapitalize="none">
     </InputLink>
 
     <br>
 
-    <!-- Campo Tipo de Obra -->
-    <ion-select 
-    [(ngModel)]="projetoData.tipoObra" 
-    label="Tipo de Obra*" 
-    label-placement="floating" 
-    fill="solid" 
-    (ionChange)="onValueChange($event)">
-    
-    <ion-select-option *ngFor="let option of obraOptions" [value]="option.value">
-      {{ option.label }}
-    </ion-select-option>
-  </ion-select>
-  
+
+    <DadosSelect [label]="'Tipo de Obra *'" [options]="obraOptions" [selectedValue]="projetoData.tipoObra"
+      (valueChange)="onValueChange($event)">
+    </DadosSelect>
+
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+
+
     <br>
 
     <ion-item>
       <ion-label position="stacked">Detalhes da obra</ion-label>
       <br>
-      <ion-textarea 
-        [(ngModel)]="projetoData.detalhes" 
-        placeholder="Observações"
-        auto-grow="true"
+      <ion-textarea [(ngModel)]="projetoData.detalhes" placeholder="Observações" auto-grow="true"
         style="--background: #94a78e; --color: white; --padding-start: 15px; --border-radius: 30px;">
       </ion-textarea>
     </ion-item>
 
     <br>
 
-    <ion-item>
-      <ion-label position="stacked">Data de início*</ion-label>
-      <br>
-      <ion-datetime display-format="MMM DD, YYYY" [(ngModel)]="projetoData.startDate"></ion-datetime>
-    </ion-item>
+    <ion-datetime-button datetime="datetimee"></ion-datetime-button>
 
-    <br>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetimee"></ion-datetime>
+      </ng-template>
+    </ion-modal>
 
-    <ion-item>
-      <ion-label position="stacked">Data de término*</ion-label>
-      <br>
-      <ion-datetime display-format="MMM DD, YYYY" [(ngModel)]="projetoData.endDate"></ion-datetime>
-    </ion-item>
+    <InputDatetime [(selectedDate)]="projetoData.startDate" [label]="'Data de Início'" [datetimeId]="'datetime'">
+    </InputDatetime>
 
-    <!-- Campo Orçamento Inicial -->
-    <InputLink 
-      placeholder="Valor Total" 
-      [(ngModel)]="projetoData.orcamento" 
-      [text]="'Valor Projeto'" 
-      keyboardType="text"
-      autoCapitalize="none"
-      (ionBlur)="formatCurrency()" 
-      (ionInput)="onInputChange($event)">
+    <InputDatetime [(selectedDate)]="projetoData.endDate" [label]="'Data de Fim'" [datetimeId]="'datetimey'">
+    </InputDatetime>
+
+
+
+    <InputLink placeholder="Valor Total" [(ngModel)]="projetoData.orcamento" [text]="'Valor Projeto'"
+      keyboardType="text" autoCapitalize="none" (ionBlur)="formatCurrency()" (ionInput)="onInputChange($event)">
     </InputLink>
 
     <br><br><br><br>
@@ -87,19 +69,13 @@
     <ion-item>
       <ion-label position="stacked">Etapa 1 - Estudo Preliminar</ion-label>
       <br>
-      <ion-input 
-        type="number" 
-        [(ngModel)]="projetoData.percentStage1" 
-        placeholder="% do valor Estudo Preliminar">
+      <ion-input type="number" [(ngModel)]="projetoData.percentStage1" placeholder="% do valor Estudo Preliminar">
       </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Etapa 2 - Anteprojeto</ion-label><br>
-      <ion-input 
-        type="number" 
-        [(ngModel)]="projetoData.percentStage2" 
-        placeholder="% do valor Anteprojeto">
+      <ion-input type="number" [(ngModel)]="projetoData.percentStage2" placeholder="% do valor Anteprojeto">
       </ion-input>
     </ion-item>
 
@@ -107,34 +83,24 @@
 
     <ion-item>
       <ion-label position="stacked">Etapa 3 - Projeto Legal</ion-label><br>
-      <ion-input 
-        type="number" 
-        [(ngModel)]="projetoData.percentStage3" 
-        placeholder="% do valor Projeto Legal">
+      <ion-input type="number" [(ngModel)]="projetoData.percentStage3" placeholder="% do valor Projeto Legal">
       </ion-input>
     </ion-item>
 
     <!-- Etapa 4 - Projeto Executivo -->
     <ion-item>
       <ion-label position="stacked">Etapa 4 - Projeto Executivo</ion-label><br>
-      <ion-input 
-        type="number" 
-        [(ngModel)]="projetoData.percentStage4" 
-        placeholder="% do valor Projeto Executivo">
+      <ion-input type="number" [(ngModel)]="projetoData.percentStage4" placeholder="% do valor Projeto Executivo">
       </ion-input>
     </ion-item>
 
     <!-- Etapa 5 - Orçamento e Planejamento -->
     <ion-item>
       <ion-label position="stacked">Etapa 5 - Orçamento e Planejamento</ion-label><br>
-      <ion-input 
-        type="number" 
-        [(ngModel)]="projetoData.percentStage5" 
-        placeholder="% do valor O. e Planejamento">
+      <ion-input type="number" [(ngModel)]="projetoData.percentStage5" placeholder="% do valor O. e Planejamento">
       </ion-input>
     </ion-item>
   </div>
 </ion-content>
 
 <ButtonLink [routerLink]="['/dados-ambiente']" [text]="'Salvar e continuar'" (click)="saveAndContinue()"></ButtonLink>
-

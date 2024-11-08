@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { SelectCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: 'app-dados-projeto',
@@ -28,9 +29,10 @@ export class DadosProjetoPage {
     { value: 'Corporativo', label: 'Corporativo' }
   ];
 
-    onValueChange(event: any) {
-        // Lógica para lidar com a mudança de valor
-    }
+  onValueChange(selectedValue: string) {
+    this.projetoData.tipoObra = selectedValue; // Recebe o valor simples
+  }
+  
 
 
   constructor(private navCtrl: NavController) {}

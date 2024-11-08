@@ -1,83 +1,23 @@
 <ion-content class="container">
   <ion-img class="container-image" src="assets/icons/logo.png"></ion-img>
-
+  
   <div class="container-form">
-
-    <ion-item lines="none">
-      <ion-input 
-        [(ngModel)]="fullName"
-        type="text"
-        placeholder="Nome completo">
-      </ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-input 
-        [(ngModel)]="phone"
-        type="tel"
-        placeholder="Telefone"
-        (ionInput)="formatPhone($event)"
-        maxlength="15"> 
-      </ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-input 
-        [(ngModel)]="company"
-        type="text"
-        placeholder="Empresa">
-      </ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-input 
-        [(ngModel)]="cpf"
-        type="text"
-        placeholder="CPF"
-        (ionInput)="formatCPF($event)"
-        maxlength="14"> 
-      </ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-input 
-        [(ngModel)]="cauregistro"
-        type="text"
-        placeholder="Registro CAU">
-      </ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-input 
-        [(ngModel)]="email"
-        type="email"
-        placeholder="E-mail">
-      </ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-input 
-        [(ngModel)]="password"
-        type="password"
-        placeholder="Escolha uma senha">
-      </ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-input 
-        [(ngModel)]="confirmPassword"
-        type="password"
-        placeholder="Confirme a senha">
-      </ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
-      <ion-input 
-        [(ngModel)]="notificationPreferences"
-        type="text"
-        placeholder="Preferências de Notificação">
-      </ion-input>
-    </ion-item>
+    
+    <InputText [(ngModel)]="fullName" placeholder="Nome completo"></InputText>
+      
+    <InputTelefone [(ngModel)]="phone"  placeholder="Telefone"></InputTelefone>
+      
+    <InputText [(ngModel)]="company" placeholder="Empresa"></InputText>
+  
+    <InputCpf [(ngModel)]="cpf"  placeholder="CPF"></InputCpf>
+  
+    <InputText [(ngModel)]="cauregistro" placeholder="Registro CAU"></InputText>
+  
+    <InputEmail [(ngModel)]="email" placeholder="E-mail"></InputEmail>
+  
+    <InputSenha [(ngModel)]="password" placeholder="Escolha uma senha"></InputSenha>
+  
+    <InputText [(ngModel)]="notificationPreferences" placeholder="Preferências de Notificação"></InputText>
 
     <WhiteButton [text]="'Cadastrar'" (click)="handleRegister()"></WhiteButton>
   </div>

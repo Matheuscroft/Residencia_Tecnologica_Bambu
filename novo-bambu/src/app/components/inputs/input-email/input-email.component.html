@@ -1,0 +1,11 @@
+<ion-item lines="none">
+  <ion-input
+    type="email"
+    [(ngModel)]="email"
+    placeholder="E-mail"
+    (ionInput)="validateEmail($event)">
+  </ion-input>
+  <ion-text color="danger" *ngIf="!isValid">
+    <p>E-mail inválido</p>
+  </ion-text>
+</ion-item>

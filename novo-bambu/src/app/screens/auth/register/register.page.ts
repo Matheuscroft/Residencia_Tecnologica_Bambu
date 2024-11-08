@@ -29,37 +29,18 @@ export class RegisterPage implements OnInit {
       return;
     }
 
-    if (!this.isValidCPF(this.cpf)) {
+   /* if (!this.isValidCPF(this.cpf)) {
       alert('CPF inválido');
       return;
-    }
+    }*/
 
-    if (!this.isValidPhone(this.phone)) {
+    /*if (!this.isValidPhone(this.phone)) {
       alert('Telefone inválido');
       return;
-    }
+    }*/
 
     console.log('Validações concluídas com sucesso!');
     this.router.navigate(['/login']);
-  }
-
-
-  formatCPF(event: any) {
-    let cpf = event.target.value.replace(/\D/g, ''); 
-    console.log('Formatando CPF:', cpf);
-
-    if (cpf.length > 11) {
-      cpf = cpf.substring(0, 11); 
-    }
-
-    
-    if (cpf.length > 3) cpf = cpf.replace(/^(\d{3})(\d)/, '$1.$2');
-    if (cpf.length > 6) cpf = cpf.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
-    if (cpf.length > 9) cpf = cpf.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
-
-    this.cpf = cpf.trim(); 
-    event.target.value = this.cpf; 
-    console.log('CPF formatado:', this.cpf);
   }
 
   
@@ -105,23 +86,6 @@ export class RegisterPage implements OnInit {
 
     console.log('CPF é válido:', cpf);
     return true;
-  }
-
-  
-  formatPhone(event: any) {
-    let phone = event.target.value.replace(/\D/g, ''); 
-    console.log('Formatando telefone:', phone);
-
-    if (phone.length > 15) {
-      phone = phone.substring(0, 15); 
-    }
-
-    
-    if (phone.length > 0) phone = phone.replace(/^(\d{2})(\d)/, '($1) $2');
-    if (phone.length > 6) phone = phone.replace(/(\d{5})(\d)/, '$1-$2');
-    this.phone = phone; 
-    event.target.value = phone; 
-    console.log('Telefone formatado:', this.phone);
   }
 
   

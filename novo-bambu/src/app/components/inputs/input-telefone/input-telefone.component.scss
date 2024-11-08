@@ -1,0 +1,22 @@
+ion-input {
+    color: white;
+    font-size: 16px;
+  }
+    
+  ion-input::placeholder {
+    color: white;
+  }
+    
+  ion-text p {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  
+  ion-item {
+    --background: transparent;
+    --border-color: white;
+    --border-width: 1px;
+    margin-bottom: 12px;
+    width: 100%; 
+  }
+  

@@ -22,19 +22,6 @@
       autoCapitalize="none">
     </InputLink>
 
-    <!-- 
-    
-<div class="select-container">
-      <label for="tipo-cliente">Classificação do cliente *</label>
-      <select id="tipo-cliente" [(ngModel)]="clienteData.tipoCliente" (change)="onTipoClienteChange($event)">
-        <option value="pessoaFisica">Pessoa Física</option>
-        <option value="pessoaJuridica">Pessoa Jurídica</option>
-      </select>
-    </div>
-
--->
-
-
     <DadosSelect [label]="'Classificação do cliente *'" [options]="[
     { label: 'Pessoa Física', value: 'fisica' },
     { label: 'Pessoa Jurídica', value: 'juridica' }

@@ -5,13 +5,15 @@ $terciaria: #D16A47;
 $cinza: #4F4F4F;
 $preto: #000;
 
-.card {
+.project-card {
   width: 90%;
   background-color: $principal;
   border-radius: 10px;
   padding: 15px;
   margin: 10px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
 
   h2 {
     font-size: 18px;
@@ -29,6 +31,15 @@ $preto: #000;
 
   p {
     font-size: 14px;
+    color: $branco;
+  }
+
+  .info-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
     color: $branco;
   }
 }

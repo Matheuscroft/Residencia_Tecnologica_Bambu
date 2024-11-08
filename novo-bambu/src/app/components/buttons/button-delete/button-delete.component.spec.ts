@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ProjectCardComponent } from './project-card.component';
+import { ButtonDeleteComponent } from './button-delete.component';
 
-describe('ProjectCardComponent', () => {
-  let component: ProjectCardComponent;
-  let fixture: ComponentFixture<ProjectCardComponent>;
+describe('ButtonDeleteComponent', () => {
+  let component: ButtonDeleteComponent;
+  let fixture: ComponentFixture<ButtonDeleteComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectCardComponent ],
+      declarations: [ ButtonDeleteComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ProjectCardComponent);
+    fixture = TestBed.createComponent(ButtonDeleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

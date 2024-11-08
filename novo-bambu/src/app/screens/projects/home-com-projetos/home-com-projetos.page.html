@@ -1,31 +1,17 @@
-<ToolbarVoltar 
-[title]="'Projetos'" 
-[defaultHref]="'/dados-ambiente'">
+<ToolbarVoltar [title]="'Projetos'" [defaultHref]="'/dados-ambiente'">
 </ToolbarVoltar>
 
 <ion-content class="home-com-projetos-container">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let project of projects; let i = index" >
 
-  <ProjectCard></ProjectCard>
-
-  <div class="project-card">
-    <ion-text class="title">• Casa de Praia</ion-text>
-
-    <div class="progress-container">
-      <ion-text class="phase-text">Fase inicial</ion-text>
-      <ion-text class="progress-text">3%</ion-text>
-    </div>
-
-    <ion-progress-bar value="0.03" color="tertiary"></ion-progress-bar>
-
-    <ion-text class="date-text">Início: 20/06/2023</ion-text>
-    <ion-text class="date-text">Previsão de entrega: 02/2030</ion-text>
-
-    <ion-button fill="clear" href="/tela-sobre-projetos">
-      <ion-icon slot="start" name="information-circle-outline"></ion-icon>
-      Mais informações
-    </ion-button>
-
-    <ButtonInfo href="/tela-sobre-projetos" imgSource="assets/icons/iconInfo.png"></ButtonInfo>
-
-  </div>
+        <app-project-card [projectTitle]="project.title" [startDate]="project.startDate" [endDate]="project.endDate"
+          [progress]="project.progress" [selecionado]="projetosSelecionados.has(i)"
+          (selecionadoChange)="toggleProjetoSelecionado(i, $event)" (deleteProject)="deleteProject(i)" [routerLink]="['/tela-sobre-projetos']">
+        </app-project-card>
+      </ion-col>
+      <ButtonAdicionarProjeto></ButtonAdicionarProjeto>
+    </ion-row>
+  </ion-grid>
 </ion-content>

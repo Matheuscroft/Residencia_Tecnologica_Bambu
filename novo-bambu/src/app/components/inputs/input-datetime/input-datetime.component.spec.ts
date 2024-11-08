@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ProjectCardComponent } from './project-card.component';
+import { InputDatetimeComponent } from './input-datetime.component';
 
-describe('ProjectCardComponent', () => {
-  let component: ProjectCardComponent;
-  let fixture: ComponentFixture<ProjectCardComponent>;
+describe('InputDatetimeComponent', () => {
+  let component: InputDatetimeComponent;
+  let fixture: ComponentFixture<InputDatetimeComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectCardComponent ],
+      declarations: [ InputDatetimeComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ProjectCardComponent);
+    fixture = TestBed.createComponent(InputDatetimeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
