@@ -1,7 +1,7 @@
 <ion-item lines="none">
   <ion-input
     [type]="senhaVisible ? 'text' : 'password'"
-    [(ngModel)]="senha"
+    [(ngModel)]="senhas.password"
     placeholder="Senha"
     (ionInput)="checkSenhaMatch()">
   </ion-input>
@@ -15,7 +15,7 @@
 <ion-item lines="none">
   <ion-input
     [type]="senhaConfirmVisible ? 'text' : 'password'"
-    [(ngModel)]="confirmSenha"
+    [(ngModel)]="senhas.confirmPassword"
     placeholder="Confirmar Senha"
     (ionInput)="checkSenhaMatch()">
   </ion-input>

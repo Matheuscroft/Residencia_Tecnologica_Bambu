@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MeuServicoService } from 'src/app/services/meu-servico.service';
 
 @Component({
   selector: 'app-register',
@@ -13,18 +14,33 @@ export class RegisterPage implements OnInit {
   company: string = '';
   cauregistro: string = '';
   email: string = '';
-  password: string = '';
-  confirmPassword: string = '';
+  senhas = {
+    password: '',
+    confirmPassword: ''
+  };
   notificationPreferences: string = '';
+  arquitetoList: any = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private meuServicoService: MeuServicoService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.meuServicoService.getArquitetoList().subscribe((data: any) => {
+      console.log(data)
+      this.arquitetoList = data;
+    })
+
+  }
 
   handleRegister() {
     console.log('Iniciando validação...');
 
-    if (this.password !== this.confirmPassword) {
+    console.log("this.password");
+    console.log(this.senhas.password);
+    console.log("this.confirmPassword");
+    console.log(this.senhas.confirmPassword);
+
+    if (this.senhas.password !== this.senhas.confirmPassword) {
       alert('As senhas não coincidem');
       return;
     }
@@ -39,8 +55,42 @@ export class RegisterPage implements OnInit {
       return;
     }*/
 
-    console.log('Validações concluídas com sucesso!');
-    this.router.navigate(['/login']);
+      /*const arquitetoData = {
+        nome: this.fullName,
+        phone: this.phone,
+        cpf: this.cpf,
+        company: this.company,
+        cadastro_cau: this.cauregistro,
+        email: this.email,
+        senha: this.senhas.password,
+        notificationPreferences: this.notificationPreferences
+      };*/
+
+      const arquitetoData = {
+        nome: this.fullName,
+        cpf: this.cpf,
+        cadastro_cau: this.cauregistro,
+        email: this.email,
+        senha: this.senhas.password
+      };
+
+      console.log('Validações concluídas com sucesso!');
+      console.log(arquitetoData);
+  
+      // Envia os dados para o backend
+      this.meuServicoService.registerArquiteto(arquitetoData).subscribe(
+        (response) => {
+          console.log('Arquiteto registrado com sucesso!', response);
+          //this.router.navigate(['/login']); // Redireciona para a tela de login após o cadastro
+        },
+        (error) => {
+          console.error('Erro ao registrar arquiteto:', error);
+          alert('Erro ao registrar arquiteto');
+        }
+      );
+
+    
+    //this.router.navigate(['/login']);
   }
 
   

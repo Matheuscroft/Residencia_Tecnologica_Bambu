@@ -1,12 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'InputCpf',
   templateUrl: './input-cpf.component.html',
-  styleUrls: ['./input-cpf.component.scss']
+  styleUrls: ['./input-cpf.component.scss'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => InputCPFComponent),
+    multi: true
+  }]
 })
-export class InputCPFComponent {
+export class InputCPFComponent implements ControlValueAccessor {
   @Input() cpf: string = '';
+
+  private onChange = (value: any) => {};
+  private onTouched = () => {};
 
   formatCPF(event: any) {
     let cpf = event.target.value.replace(/\D/g, '');
@@ -15,6 +24,18 @@ export class InputCPFComponent {
     if (cpf.length > 6) cpf = cpf.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
     if (cpf.length > 9) cpf = cpf.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
     this.cpf = cpf;
-    event.target.value = this.cpf;
+    this.onChange(this.cpf);
+  }
+
+  writeValue(value: any): void {
+    this.cpf = value || '';
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
   }
 }
