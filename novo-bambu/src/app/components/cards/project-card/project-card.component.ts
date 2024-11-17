@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-project-card',
+  selector: 'ProjectCard',
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.scss'],
 })

@@ -1,11 +1,25 @@
 <ToolbarVoltar
-  [title]="'Projeto Casa de Praia'"
+  [title]="projeto?.title"
   [defaultHref]="'/home-com-projetos'"
 ></ToolbarVoltar>
 
 <ion-content [fullscreen]="true" class="tela-sobre-projeto-container">
-
   <ProjectSegment (segmentChanged)="onSegmentChange($event)"></ProjectSegment>
-  <ProjectModal [selectedSegment]="selectedSegment"></ProjectModal>
- 
+
+  <ng-container *ngIf="selectedSegment === 'etapas'">
+    <ProjectModal [selectedSegment]="selectedSegment" [projeto]="projeto"></ProjectModal>
+  </ng-container>
+
+  <ng-container *ngIf="selectedSegment === 'detalhes'">
+    <div class="card">
+      <h2>{{ projeto?.title }}</h2>
+      <p><strong>Início:</strong> {{ projeto?.startDate | date }}</p>
+      <p><strong>Previsão de entrega:</strong> {{ projeto?.endDate | date }}</p>
+      <p><strong>Endereço:</strong> {{ projeto?.endereco }}</p>
+      <p><strong>Tipo de Obra:</strong> {{ projeto?.tipoObra }}</p>
+      <p><strong>Valor do Projeto:</strong> {{ projeto?.valor | currency:'BRL' }}</p>
+    </div>
+  </ng-container>
+
+  
 </ion-content>

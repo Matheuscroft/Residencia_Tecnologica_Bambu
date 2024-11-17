@@ -25,6 +25,7 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
 
+    console.log("iniciei")
     this.meuServicoService.getArquitetoList().subscribe((data: any) => {
       console.log(data)
       this.arquitetoList = data;

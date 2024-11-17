@@ -8,8 +8,8 @@
 
   <ion-progress-bar [value]="progress / 100" color="tertiary"></ion-progress-bar>
 
-  <p>Início: {{ startDate | date: 'shortDate' }}</p>
-  <p>Previsão de entrega: {{ endDate | date: 'shortDate' }}</p>
+  <p>Início: {{ startDate | date: 'dd/MM/yy' : 'UTC' }}</p>
+  <p>Previsão de entrega: {{ endDate | date: 'dd/MM/yy' : 'UTC' }}</p>
 
   <ng-container *ngIf="modoExclusao; else infoButton">
     <input type="checkbox" [(ngModel)]="selecionado" (change)="toggleSelecionado()" />

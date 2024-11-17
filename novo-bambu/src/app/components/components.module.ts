@@ -26,6 +26,8 @@ import { InputSenhaComponent } from './inputs/input-senha/input-senha.component'
 import { InputTelefoneComponent } from './inputs/input-telefone/input-telefone.component';
 import { InputTextComponent } from './inputs/input-text/input-text.component';
 import { InputDatetimeComponent } from './inputs/input-datetime/input-datetime.component';
+import { CardReuniaoComponent } from './cards/card-reuniao/card-reuniao.component';
+import { InputValorComponent } from './inputs/input-valor/input-valor.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { InputDatetimeComponent } from './inputs/input-datetime/input-datetime.c
     InputSenhaComponent,
     InputTelefoneComponent,
     InputTextComponent,
-    InputDatetimeComponent
+    InputDatetimeComponent,
+    CardReuniaoComponent,
+    InputValorComponent
   ],
   imports: [
     CommonModule,
@@ -78,7 +82,9 @@ import { InputDatetimeComponent } from './inputs/input-datetime/input-datetime.c
     InputSenhaComponent,
     InputTelefoneComponent,
     InputTextComponent,
-    InputDatetimeComponent
+    InputDatetimeComponent,
+    CardReuniaoComponent,
+    InputValorComponent
   ]
 })
 export class ComponentsModule {}

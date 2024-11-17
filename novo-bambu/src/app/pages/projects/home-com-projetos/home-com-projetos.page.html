@@ -4,12 +4,17 @@
 <ion-content class="home-com-projetos-container">
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let project of projects; let i = index" >
-
-        <app-project-card [projectTitle]="project.title" [startDate]="project.startDate" [endDate]="project.endDate"
-          [progress]="project.progress" [selecionado]="projetosSelecionados.has(i)"
-          (selecionadoChange)="toggleProjetoSelecionado(i, $event)" (deleteProject)="deleteProject(i)" [routerLink]="['/tela-sobre-projetos']">
-        </app-project-card>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let project of projects; let i = index">
+        <ProjectCard 
+          [projectTitle]="project.title" 
+          [startDate]="project.startDate" 
+          [endDate]="project.endDate"
+          [progress]="project.progress" 
+          [selecionado]="projetosSelecionados.has(i)"
+          (selecionadoChange)="toggleProjetoSelecionado(i, $event)" 
+          (deleteProject)="deleteProject(i)" 
+          (click)="abrirDetalhesProjeto(project)">
+        </ProjectCard>
       </ion-col>
       <ButtonAdicionarProjeto></ButtonAdicionarProjeto>
     </ion-row>

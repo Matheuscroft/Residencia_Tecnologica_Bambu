@@ -1,0 +1,18 @@
+<ion-card (click)="toggleExpanded()">
+  <ion-item lines="none">
+    <!-- Nome em uma linha separada -->
+    <ion-label>
+      <h2>{{ nome }}</h2>
+    </ion-label>
+  </ion-item>
+  
+  <!-- Data e Hora na mesma linha -->
+  <ion-item lines="none">
+    <ion-label class="data-hora">
+      {{ data }}
+    </ion-label>
+    <ion-label class="data-hora2" style="text-align: right;">
+      {{ hora }}
+    </ion-label>
+  </ion-item>
+</ion-card>

@@ -1,10 +1,10 @@
 <ToolbarVoltar [title]="'Dados do Projeto'" [defaultHref]="'/dados-cliente'">
 </ToolbarVoltar>
 
-<ion-content class="dados-projeto-container">
+<ion-content [fullscreen]="true" class="dados-projeto-container">
   <div class="container">
 
-    <InputLink placeholder="Título do projeto" [(ngModel)]="projetoData.titulo" [text]="'Nome do Projeto'"
+    <InputLink placeholder="Título do projeto" [(ngModel)]="projetoData.nomeDoProjeto" [text]="'Nome do Projeto'"
       keyboardType="text" autoCapitalize="none">
     </InputLink>
 
@@ -17,17 +17,12 @@
     <br>
 
 
+
     <DadosSelect [label]="'Tipo de Obra *'" [options]="obraOptions" [selectedValue]="projetoData.tipoObra"
       (valueChange)="onValueChange($event)">
     </DadosSelect>
 
-    <ion-datetime-button datetime="datetime"></ion-datetime-button>
 
-    <ion-modal [keepContentsMounted]="true">
-      <ng-template>
-        <ion-datetime id="datetime"></ion-datetime>
-      </ng-template>
-    </ion-modal>
 
 
     <br>
@@ -35,32 +30,49 @@
     <ion-item>
       <ion-label position="stacked">Detalhes da obra</ion-label>
       <br>
-      <ion-textarea [(ngModel)]="projetoData.detalhes" placeholder="Observações" auto-grow="true"
+      <ion-textarea [(ngModel)]="projetoData.descricao" placeholder="Observações" auto-grow="true"
         style="--background: #94a78e; --color: white; --padding-start: 15px; --border-radius: 30px;">
       </ion-textarea>
     </ion-item>
 
     <br>
 
-    <ion-datetime-button datetime="datetimee"></ion-datetime-button>
-
-    <ion-modal [keepContentsMounted]="true">
-      <ng-template>
-        <ion-datetime id="datetimee"></ion-datetime>
-      </ng-template>
-    </ion-modal>
-
-    <InputDatetime [(selectedDate)]="projetoData.startDate" [label]="'Data de Início'" [datetimeId]="'datetime'">
-    </InputDatetime>
-
-    <InputDatetime [(selectedDate)]="projetoData.endDate" [label]="'Data de Fim'" [datetimeId]="'datetimey'">
-    </InputDatetime>
 
 
 
-    <InputLink placeholder="Valor Total" [(ngModel)]="projetoData.orcamento" [text]="'Valor do Projeto'"
-      keyboardType="text" autoCapitalize="none" (ionBlur)="formatCurrency()" (ionInput)="onInputChange($event)">
-    </InputLink>
+
+
+
+    <ion-item>
+      <ion-label position="stacked">Data de Início</ion-label>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime" (ionChange)="onDatetimeChange($event, 'dataDeInicio')">
+          </ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Data de Fim</ion-label>
+      <ion-datetime-button datetime="datetime2"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime 
+        id="datetime2" 
+        (ionChange)="onDatetimeChange($event, 'dataPrevistaFim')">
+      </ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+
+    <InputValor placeholder="Valor Total" [(ngModel)]="projetoData.valorProjeto" [text]="'Valor do Projeto'">
+    </InputValor>
+
 
     <br><br><br><br>
 
@@ -103,4 +115,10 @@
   </div>
 </ion-content>
 
-<ButtonLink [routerLink]="['/dados-ambiente']" [text]="'Salvar e continuar'" (click)="saveAndContinue()"></ButtonLink>
+
+<ion-footer>
+  <div class="container-buttonLink">
+    <ButtonLink [routerLink]="['/dados-ambiente']" [text]="'Salvar e continuar'" (click)="saveAndContinue()">
+    </ButtonLink>
+  </div>
+</ion-footer>

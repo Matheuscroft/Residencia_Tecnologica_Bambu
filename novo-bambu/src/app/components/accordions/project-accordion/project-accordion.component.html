@@ -1,8 +1,71 @@
-<ion-accordion-group expand="inset">
-  <ion-accordion value="first">
-    <ion-item slot="header" color="light">
-      <ion-label>First Accordion</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">First Content</div>
-  </ion-accordion>
-</ion-accordion-group>
+<ion-item lines="none">
+  <ion-checkbox slot="start"></ion-checkbox>
+  <ion-accordion-group expand="inset" style="width: 100%;">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>{{ nomeEtapa }}</ion-label>
+      </ion-item>
+
+      <div class="ion-padding" slot="content">
+        <div *ngIf="!cardExpandido">
+          
+          <ion-item>
+            <ion-label position="stacked">Observações</ion-label>
+            <ion-textarea placeholder="Reunião com o cliente..." auto-grow="true"
+              style="--background: #94a78e; --color: white; --padding-start: 15px; --border-radius: 30px;">
+            </ion-textarea>
+          </ion-item>
+          <InputDatetime [label]="'Data e Hora de Início'" [datetimeId]="'datetime'"></InputDatetime>
+          <InputDatetime [label]="'Data e Hora de Fim'" [datetimeId]="'datetime2'"></InputDatetime>
+          <p>Valor da Etapa: R$ 55.000</p>
+          <StatusSelect [label]="'Status da Etapa'" [options]="[
+            { label: 'Iniciado', value: 'iniciado' },
+            { label: 'Em andamento', value: 'emAndamento' },
+            { label: 'Finalizado', value: 'finalizado' }
+          ]" [selectedValue]="'iniciado'"></StatusSelect>
+
+           <!-- Card de Reunião (gerado dinamicamente) -->
+           <div *ngFor="let reuniao of reunioes; let i = index">
+            <CardReuniao [nome]="reuniao.nome" [data]="reuniao.data" [hora]="reuniao.hora"
+                          (cardClicado)="expandirCard(i)"></CardReuniao>
+          </div>
+          
+          <!-- Botão para adicionar nova reunião -->
+          <ion-button expand="full" (click)="adicionarReuniao()">Adicionar nova reunião</ion-button>
+        </div>
+
+        <div *ngIf="cardExpandido">
+          <!-- Conteúdo expandido do CardReuniao -->
+          <ion-item lines="none">
+            <ion-button fill="clear" (click)="voltar()">Voltar</ion-button>
+          </ion-item>
+          <ion-item>
+            <ng-container *ngIf="!editandoTitulo; else editInput">
+              <h2 (click)="editandoTitulo = true">{{ titulo }}</h2>
+            </ng-container>
+            <ng-template #editInput>
+              <ion-input
+                [(ngModel)]="titulo"
+                (blur)="salvarTitulo()"
+                (keyup.enter)="salvarTitulo()"
+                autofocus>
+              </ion-input>
+            </ng-template>
+          </ion-item>
+          <ion-item>
+            <InputDatetime [label]="'Data e Hora'" [datetimeId]="'datetime2'"></InputDatetime>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Local</ion-label>
+            <ion-textarea placeholder="Local, endereço, link..."></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Apontamentos</ion-label>
+            <ion-textarea placeholder="Apontamentos da reunião"></ion-textarea>
+          </ion-item>
+          <!-- Adicione outros campos detalhados conforme necessário -->
+        </div>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-item>

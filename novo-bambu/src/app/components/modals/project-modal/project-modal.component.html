@@ -1,29 +1,51 @@
 <ion-content>
   <ion-toolbar>
     <ion-title>Sobre o Projeto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Fechar</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 
-  <ProjectStatusForm></ProjectStatusForm>
+  <div class="modal-content">
+    <ProjectStatusForm></ProjectStatusForm>
 
-  
-  
-  <div *ngIf="selectedSegment === 'etapas'">
-    <ProjectAccordion></ProjectAccordion>
-    <h2>• Situação atual</h2>
-    <p>Etapa anterior: Reunião de briefing</p>
-    <p>Etapa atual: Definição de RT</p>
-    <p>Próxima etapa: Reunião com M.O</p>
-  </div>
+    <!-- Segmento Etapas -->
+    <div *ngIf="selectedSegment === 'etapas'" class="segment-content">
+      <ProjectAccordion [nomeEtapa]="'Etapa 1 - Estudo Preliminar'"></ProjectAccordion>
+      <ProjectAccordion [nomeEtapa]="'Etapa 2 - Análise Técnica'"></ProjectAccordion>
+      <ProjectAccordion [nomeEtapa]="'Etapa 3 - Desenvolvimento'"></ProjectAccordion>
+      <ProjectAccordion [nomeEtapa]="'Etapa 4 - Testes'"></ProjectAccordion>
+      <ProjectAccordion [nomeEtapa]="'Etapa 5 - Entrega'"></ProjectAccordion>
+      <h2>• Situação atual</h2>
+      <p><strong>Etapa anterior:</strong> {{ projeto?.etapas?.etapaAnterior || 'Não disponível' }}</p>
+      <p><strong>Etapa atual:</strong> {{ projeto?.etapas?.etapaAtual || 'Não disponível' }}</p>
+      <p><strong>Próxima etapa:</strong> {{ projeto?.etapas?.proximaEtapa || 'Não disponível' }}</p>
+    </div>
 
-  <div *ngIf="selectedSegment === 'detalhes'">
-    <h2>• Detalhes do Projeto</h2>
-    <p>Endereço: Av. Estefânia Carneiro. 171 PE - Carpina - Centro</p>
-    <p>Tipo de obra: Residencial</p>
-    <p>Valor do Projeto: R$9.812,60</p>
-  </div>
+    <!-- Segmento Detalhes -->
+    <div *ngIf="selectedSegment === 'detalhes'" class="segment-content">
+      <h2>• Detalhes do Projeto</h2>
+      <p><strong>Endereço:</strong> {{ projeto?.endereco || 'Endereço não informado' }}</p>
+      <p><strong>Tipo de obra:</strong> {{ projeto?.tipoObra || 'Tipo de obra não informado' }}</p>
+      <p><strong>Valor do Projeto:</strong> {{ projeto?.valor | currency:'BRL' || 'Valor não informado' }}</p>
+    </div>
 
-  <div *ngIf="selectedSegment === 'ambientes'">
-    <h2>• Ambientes</h2>
-    <p>Descrição dos ambientes do projeto...</p>
+    <!-- Segmento Ambientes -->
+    <div *ngIf="selectedSegment === 'ambientes'" class="segment-content">
+      <h2>• Ambientes</h2>
+      <div *ngIf="projeto?.ambientes && projeto.ambientes.length > 0; else noAmbientes">
+        <ion-list>
+          <ion-item *ngFor="let ambiente of projeto.ambientes">
+            <ion-label>
+              <h3>{{ ambiente.nome }}</h3>
+              <p>Tamanho: {{ ambiente.tamanho }} m²</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <ng-template #noAmbientes>
+        <p>Sem ambientes cadastrados.</p>
+      </ng-template>
+    </div>
   </div>
 </ion-content>

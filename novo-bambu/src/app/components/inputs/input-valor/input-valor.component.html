@@ -1,0 +1,10 @@
+<ion-item>
+  <ion-input
+    label="{{ text }}" 
+    [placeholder]="placeholder"
+    [value]="displayValue"
+    (ionInput)="updateValue($event)"
+    type="text"
+    labelPlacement="floating"
+  ></ion-input>
+</ion-item>
