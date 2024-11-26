@@ -18,4 +18,17 @@ export class ProjetoServiceService {
   registerProjeto(data: any): Observable<any> {
     return this.http.post(this.apiUrl, data);
   }
+
+  deleteProjeto(id: string): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url, { responseType: 'text' });
+  }
+
+  updateProjeto(id: string, data: any): Observable<any> {
+    console.log("data")
+    console.log(data)
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put(url, data);
+  }
+  
 }

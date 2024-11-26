@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AmbienteService } from 'src/app/services/shared/ambiente.service';
+import { ProjetoidService } from 'src/app/services/shared/projetoid.service';
 
 interface Ambiente {
   nome: string;
@@ -13,7 +15,18 @@ interface Ambiente {
 export class DadosAmbientePage {
   ambientes: Ambiente[] = [];
 
-  constructor() {}
+  projetoId: string | null = null;
+
+  constructor(private ambienteService: AmbienteService, private projetoIdService: ProjetoidService) { }
+
+  ngOnInit() {
+    //this.projetoId = localStorage.getItem('projetoId');
+    this.projetoId = this.projetoIdService.getProjetoId();
+    console.log("projetoId recebido do serviço compartilhado:", this.projetoId);
+    if (!this.projetoId) {
+      //console.error('Nenhum ID de projeto encontrado.');
+    }
+  }
 
   // Adiciona um novo par de campos de Nome e Quantidade
   adicionarAmbiente() {
@@ -28,20 +41,42 @@ export class DadosAmbientePage {
   // Atualiza a quantidade de um ambiente específico
   atualizarQuantidade(quantidade: number, index: number) {
     this.ambientes[index].quantidade = quantidade;
+    console.log("atualizarQuantidade")
+    console.log("this.ambientes")
+    console.log(this.ambientes)
   }
 
-  // Salvar os dados ao clicar em "Salvar e continuar"
   salvarAmbientes() {
     const ambientesValidados = this.ambientes.filter(a => a.nome && a.quantidade > 0);
-    
-    if (ambientesValidados.length > 0) {
-      localStorage.setItem('ambientesSelecionados', JSON.stringify(ambientesValidados));
-      console.log('Dados salvos no localStorage:', ambientesValidados);
+
+    const ambientesFinais = ambientesValidados
+    .map((ambiente: any) => {
+      return Array.from({ length: ambiente.quantidade }, (_, index) => ({
+        nome: `${ambiente.nome} ${index + 1}`,
+        tamanho: '' // Mantém vazio
+      }));
+    })
+    .reduce((acc, curr) => acc.concat(curr), []);
+
+    console.log("ambientesFinais")
+    console.log(ambientesFinais)
+
+    if (ambientesFinais.length > 0) {
+      /*localStorage.setItem('ambientesSelecionados', JSON.stringify(ambientesFinais));
+      console.log('Dados salvos no localStorage:', ambientesFinais);*/
+
+      const dadosAmbientes = { projetoId: this.projetoId, ambientes: ambientesFinais };
+      console.log('Dados dos ambientes a serem enviados:');
+      console.log(dadosAmbientes)
+
+      this.ambienteService.setDadosAmbientes(dadosAmbientes);
+
+
     } else {
       console.error('Nenhum ambiente válido para salvar.');
     }
   }
-  
+
 
   atualizarLocalStorage() {
     localStorage.setItem('ambientesSelecionados', JSON.stringify(this.ambientes));
@@ -50,9 +85,9 @@ export class DadosAmbientePage {
   removerAmbiente(index: number) {
     // Remove o ambiente do array
     this.ambientes.splice(index, 1);
-  
+
     // Atualiza o localStorage com o novo array
     this.atualizarLocalStorage();
   }
-  
+
 }

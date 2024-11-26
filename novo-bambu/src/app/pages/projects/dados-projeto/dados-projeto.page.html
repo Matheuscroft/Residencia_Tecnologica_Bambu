@@ -10,7 +10,7 @@
 
     <br>
 
-    <InputLink placeholder="Endereço do projeto" [(ngModel)]="projetoData.enderecoProjeto"
+    <InputLink placeholder="Endereço do projeto" [(ngModel)]="projetoData.endereco"
       [text]="'Endereço do Projeto'" keyboardType="text" autoCapitalize="none">
     </InputLink>
 
@@ -81,13 +81,13 @@
     <ion-item>
       <ion-label position="stacked">Etapa 1 - Estudo Preliminar</ion-label>
       <br>
-      <ion-input type="number" [(ngModel)]="projetoData.percentStage1" placeholder="% do valor Estudo Preliminar">
+      <ion-input type="number" [(ngModel)]="projetoData.porcentagemEtapa1" placeholder="% do valor Estudo Preliminar">
       </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Etapa 2 - Anteprojeto</ion-label><br>
-      <ion-input type="number" [(ngModel)]="projetoData.percentStage2" placeholder="% do valor Anteprojeto">
+      <ion-input type="number" [(ngModel)]="projetoData.porcentagemEtapa2" placeholder="% do valor Anteprojeto">
       </ion-input>
     </ion-item>
 
@@ -95,21 +95,21 @@
 
     <ion-item>
       <ion-label position="stacked">Etapa 3 - Projeto Legal</ion-label><br>
-      <ion-input type="number" [(ngModel)]="projetoData.percentStage3" placeholder="% do valor Projeto Legal">
+      <ion-input type="number" [(ngModel)]="projetoData.porcentagemEtapa3" placeholder="% do valor Projeto Legal">
       </ion-input>
     </ion-item>
 
     <!-- Etapa 4 - Projeto Executivo -->
     <ion-item>
       <ion-label position="stacked">Etapa 4 - Projeto Executivo</ion-label><br>
-      <ion-input type="number" [(ngModel)]="projetoData.percentStage4" placeholder="% do valor Projeto Executivo">
+      <ion-input type="number" [(ngModel)]="projetoData.porcentagemEtapa4" placeholder="% do valor Projeto Executivo">
       </ion-input>
     </ion-item>
 
     <!-- Etapa 5 - Orçamento e Planejamento -->
     <ion-item>
       <ion-label position="stacked">Etapa 5 - Orçamento e Planejamento</ion-label><br>
-      <ion-input type="number" [(ngModel)]="projetoData.percentStage5" placeholder="% do valor O. e Planejamento">
+      <ion-input type="number" [(ngModel)]="projetoData.porcentagemEtapa5" placeholder="% do valor O. e Planejamento">
       </ion-input>
     </ion-item>
   </div>
@@ -118,7 +118,7 @@
 
 <ion-footer>
   <div class="container-buttonLink">
-    <ButtonLink [routerLink]="['/dados-ambiente']" [text]="'Salvar e continuar'" (click)="saveAndContinue()">
+    <ButtonLink [text]="'Salvar e continuar'" (clickEvent)="saveAndContinue()">
     </ButtonLink>
   </div>
 </ion-footer>

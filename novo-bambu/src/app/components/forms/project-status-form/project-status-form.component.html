@@ -1,12 +1,15 @@
-<div>
-  <p>Data de início: </p>
-  <p>Data de fim: </p>
+<div class="div-principal">
+  <div class="div-inicio-termino-status-form">
+    <p>Início: {{ projeto?.dataDeInicio | date: 'dd/MM/yyyy' }}</p>
+    <p>Término: {{ projeto?.dataPrevistaFim | date: 'dd/MM/yyyy' }}</p>
+  </div>
 
-  <StatusSelect [label]="'Status'" [options]="[
-    { label: 'Iniciado', value: 'iniciado' },
-    { label: 'Em andamento', value: 'emAndamento' },
-    { label: 'Finalizado', value: 'finalizado' }
-  ]" [selectedValue]="clienteData.statusProjeto" (valueChange)="onTipoClienteChange($event)">
-  </StatusSelect>
-
+  <div class="status-select-container">
+    <StatusSelect [label]="'Status'" [options]="[
+    { label: 'Iniciado', value: 'Iniciado' },
+    { label: 'Em andamento', value: 'Em Andamento' },
+    { label: 'Finalizado', value: 'Finalizado' }
+  ]" [selectedValue]="projeto.statusProjeto" (valueChange)="onStatusChange($event)">
+    </StatusSelect>
+  </div>
 </div>

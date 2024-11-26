@@ -8,7 +8,7 @@
 
   <div class="ambientes-lista">
     <app-ambiente-tamanho
-      *ngFor="let ambiente of ambientes; let i = index"
+      *ngFor="let ambiente of dadosAmbientes.ambientes; let i = index"
       [nome]="ambiente.nome"
       [tamanho]="ambiente.tamanho"
       (tamanhoMudou)="atualizarTamanho(i, $event)"
@@ -19,10 +19,7 @@
 
 <ion-footer>
   <div class="container-buttonLink">
-    <ButtonLink
-      [routerLink]="['/home-com-projetos']"
-      text="Salvar e continuar"
-      (click)="salvarTamanhos()"
-    ></ButtonLink>
+    <ButtonLink [text]="'Salvar e continuar'" (clickEvent)="salvarTamanhos()">
+    </ButtonLink>
   </div>
 </ion-footer>

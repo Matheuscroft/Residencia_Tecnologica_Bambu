@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { AmbienteServiceService } from 'src/app/services/ambiente-service.service';
+import { AmbienteService } from 'src/app/services/shared/ambiente.service';
+import { ProjetoidService } from 'src/app/services/shared/projetoid.service';
 
 interface Ambiente {
   nome: string;
@@ -13,18 +17,18 @@ interface Ambiente {
 })
 export class DadosAmbientesTamanhoPage implements OnInit {
   ambientes: Ambiente[] = [];
+  dadosAmbientes: any;
+  projetoId: string | null = null;
+
+  constructor(private navCtrl: NavController, private ambienteService: AmbienteService, private ambienteServiceBackend: AmbienteServiceService) {}
 
   ngOnInit() {
-    const dados = localStorage.getItem('ambientesSelecionados');
-    if (dados) {
-      const ambientesSelecionados = JSON.parse(dados);
-      this.gerarListaDeAmbientes(ambientesSelecionados);
-      console.log('Dados carregados do localStorage:', ambientesSelecionados);
-    } else {
-      console.log('Nenhum dado encontrado no localStorage.');
-    }
+
+    this.dadosAmbientes = this.ambienteService.getDadosAmbientes();
+    console.log('Dados recebidos:', this.dadosAmbientes);
+    
   }
-  
+
 
   gerarListaDeAmbientes(ambientesSelecionados: Ambiente[]) {
     ambientesSelecionados.forEach(ambiente => {
@@ -37,11 +41,14 @@ export class DadosAmbientesTamanhoPage implements OnInit {
       }
     });
   }
-  
+
 
   atualizarTamanho(index: number, novoTamanho: string) {
-    this.ambientes[index].tamanho = novoTamanho;
-    this.atualizarLocalStorage();
+   /* this.ambientes[index].tamanho = novoTamanho;
+    this.atualizarLocalStorage();*/
+
+    this.dadosAmbientes.ambientes[index].tamanho = novoTamanho;
+
   }
 
   removerAmbiente(index: number) {
@@ -59,7 +66,20 @@ export class DadosAmbientesTamanhoPage implements OnInit {
   }
 
   salvarTamanhos() {
-    this.atualizarLocalStorage();
-    console.log('Ambientes com tamanhos:', this.ambientes);
+    
+    console.log('Dados para envio:', this.dadosAmbientes);
+    // Envie os dadosCompletos ao backend
+
+    this.ambienteServiceBackend.registerAmbiente(this.dadosAmbientes.projetoId, this.dadosAmbientes.ambientes).subscribe(
+      response => {
+        console.log('Ambientes criados com sucesso', response);
+        this.navCtrl.navigateForward('/projetos-home');
+      },
+      error => {
+        console.error('Erro ao criar ambientes', error);
+      }
+    );
   }
+
 }
+

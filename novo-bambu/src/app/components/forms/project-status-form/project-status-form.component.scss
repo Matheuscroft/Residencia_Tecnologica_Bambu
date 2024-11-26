@@ -1,0 +1,28 @@
+.div-inicio-termino-status-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.status-select-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin-top: 10px;       
+  }
+  
+  ion-item {
+    --padding-start: 0;      
+    width: auto;             
+  }
+  
+  ion-select {
+    width: auto;             
+    text-align: center;      
+  }
+
+  .div-principal{
+    background: #3a5340;
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+  }

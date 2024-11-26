@@ -15,13 +15,31 @@ export class ProjetosHomePage implements OnInit {
   constructor(private projetoService: ProjetoServiceService, private router: Router) { }
 
   ngOnInit() {
-
+/*
     console.log("iniciei")
     this.projetoService.getProjetoList().subscribe((data: any) => {
       console.log(data)
-      this.projetoList = data;
+      this.projetoList = (data || []).reverse();
     })
+*/
+  }
 
+  ionViewWillEnter() {
+    // Carregar os dados sempre que a página for exibida
+    console.log('Página de projetos em foco');
+    this.carregarProjetos();
+  }
+
+  carregarProjetos() {
+    this.projetoService.getProjetoList().subscribe({
+      next: (data: any) => {
+        console.log('Dados carregados:', data);
+        this.projetoList = (data || []).reverse();
+      },
+      error: (err) => {
+        console.error('Erro ao carregar projetos:', err);
+      },
+    });
   }
 
 
@@ -40,11 +58,30 @@ export class ProjetosHomePage implements OnInit {
     }
   }
 
-  deleteProject(index: number) {
+  /*deleteProject(index: number) {
     if (index >= 0 && index < this.projetoList.length) {
       this.projetoList.splice(index, 1);
     }
-  }
+  }*/
+    deleteProject(index: number) {
+
+      console.log("deleteProject")
+      console.log("index")
+      console.log(index)
+      const projetoId = this.projetoList[index]?.id; 
+      if (projetoId) {
+        this.projetoService.deleteProjeto(projetoId).subscribe(
+          (response) => {
+            console.log('Projeto removido com sucesso:', response);
+            this.projetoList.splice(index, 1);
+          },
+          (error) => {
+            console.error('Erro ao remover projeto:', error);
+          }
+        );
+      }
+    }
+
 
 
   addProject() {

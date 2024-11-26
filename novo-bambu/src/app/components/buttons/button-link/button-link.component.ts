@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -7,16 +7,25 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./button-link.component.scss'],
 })
 export class ButtonLinkComponent {
-  @Input() href: string = '';  // Defina um valor padrão para evitar problemas de navegação
+  @Input() href: string = '';
   @Input() text: string = '';
+  @Output() clickEvent = new EventEmitter<void>();
 
   constructor(private navCtrl: NavController) {}
 
-  navigateTo() {
+  /*navigateTo() {
     if (this.href) {
       this.navCtrl.navigateForward(this.href);
     } else {
       console.error('Navegação falhou: O valor de "href" está indefinido ou é inválido.');
+    }
+  }*/
+
+  handleClick() {
+    if (this.href) {
+      this.navCtrl.navigateForward(this.href); 
+    } else {
+      this.clickEvent.emit(); 
     }
   }
 }

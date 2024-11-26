@@ -3,5 +3,17 @@ ion-item {
 }
 
 ion-checkbox {
-  margin-right: 8px; /* Ajuste o espaço entre o checkbox e o accordion, se necessário */
+  margin-right: 8px; 
 }
+
+.label-textarea {
+  margin-bottom:10px; 
+}
+
+.textarea{
+  --background: #94a78e; 
+  --color: white; 
+  --padding-start: 15px; 
+  --border-radius: 15px;
+}
+

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class TelaSobreProjetosPage implements OnInit {
   projeto: any;
-  selectedSegment: string = 'detalhes';
+  selectedSegment: string = 'etapas';
 
   constructor(private router: Router) {}
 
@@ -16,6 +16,8 @@ export class TelaSobreProjetosPage implements OnInit {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.projeto = navigation.extras.state['projeto'];
+      console.log("this.projeto")
+      console.log(this.projeto)
     }
   }
 

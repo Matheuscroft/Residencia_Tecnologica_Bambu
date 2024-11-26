@@ -10,9 +10,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { DateFormatPipe } from './pipes/date-format.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DateFormatPipe],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, RouterModule, FormsModule, CommonModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideHttpClient()],
   bootstrap: [AppComponent],
